@@ -1,13 +1,13 @@
 import type { SheetData, DashboardData, RaidMember, PointsData, GroupOverview } from './types';
 
 // For public sheets - replace with your API key
-const API_KEY = '';
+const API_KEY = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY ?? '';
 
 // Google Sheets API base URL
 const SHEETS_API_URL = 'https://sheets.googleapis.com/v4/spreadsheets';
 
 export class SheetsService {
-  private spreadsheetId = '';
+  private spreadsheetId = import.meta.env.VITE_GOOGLE_SHEETS_SPREADSHEET_ID ?? '';
 
   async getSheetData(spreadsheetId: string, range: string): Promise<DashboardData> {
     try {
