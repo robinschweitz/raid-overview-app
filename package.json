@@ -1,5 +1,6 @@
 {
   "name": "test-app",
+  "homepage": "https://robinschweitz.github.io/raid-overview-app/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
