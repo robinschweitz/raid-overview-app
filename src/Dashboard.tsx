@@ -70,13 +70,13 @@ const Dashboard: React.FC = () => {
     // Initial data load
     fetchAllData();
 
-    // Set up automatic refresh every 30 seconds
-    const interval = setInterval(() => {
-      fetchAllData();
-    }, 30000); // 30 seconds
+  //   // Set up automatic refresh every 30 seconds
+  //   const interval = setInterval(() => {
+  //     fetchAllData();
+  //   }, 30000); // 30 seconds
 
-    // Cleanup interval on unmount
-    return () => clearInterval(interval);
+  //   // Cleanup interval on unmount
+  //   return () => clearInterval(interval);
   }, []);
 
   const getClassColor = (className: string): string => {
