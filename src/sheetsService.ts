@@ -6,307 +6,169 @@ const API_KEY = import.meta.env.VITE_GOOGLE_SHEETS_API_KEY ?? '';
 // Google Sheets API base URL
 const SHEETS_API_URL = 'https://sheets.googleapis.com/v4/spreadsheets';
 
+type CacheEntry<T> = { expiresAt: number; promise: Promise<T> };
+type GetOpts = { force?: boolean; ttlMs?: number };
+
 export class SheetsService {
   private spreadsheetId = import.meta.env.VITE_GOOGLE_SHEETS_SPREADSHEET_ID ?? '';
 
-  async getSheetData(spreadsheetId: string, range: string): Promise<DashboardData> {
-    try {
-      const url = `${SHEETS_API_URL}/${spreadsheetId}/values/${encodeURIComponent(range)}?key=${API_KEY}`;
+  // Simple in-memory promise cache to dedupe identical requests (including concurrent ones)
+  private cache = new Map<string, CacheEntry<any>>();
+  private defaultTtlMs = 30_000; // 30s
 
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+  private cached<T>(key: string, fetcher: () => Promise<T>, opts?: GetOpts): Promise<T> {
+    const now = Date.now();
+    const force = opts?.force ?? false;
+    const ttlMs = opts?.ttlMs ?? this.defaultTtlMs;
 
-      const data = await response.json();
-      const rows = data.values || [];
+    const hit = this.cache.get(key) as CacheEntry<T> | undefined;
+    if (!force && hit && hit.expiresAt > now) return hit.promise;
 
-      if (rows.length === 0) {
-        return { rows: [], headers: [] };
-      }
+    const promise = fetcher().catch(err => {
+      // Don't cache failures
+      this.cache.delete(key);
+      throw err;
+    });
 
-      const headers = rows[0];
-      const dataRows = rows.slice(1).map((row: any[]) => {
-        const obj: SheetData = {};
-        headers.forEach((header: string, index: number) => {
-          obj[header] = row[index] || '';
+    this.cache.set(key, { expiresAt: now + ttlMs, promise });
+    return promise;
+  }
+
+  /** Low-level: fetch a single range and normalize to {headers, rows} */
+  async getSheetData(spreadsheetId: string, range: string, opts?: GetOpts): Promise<DashboardData> {
+    const key = `values:${spreadsheetId}:${range}`;
+    return this.cached(
+      key,
+      async () => {
+        const url = `${SHEETS_API_URL}/${spreadsheetId}/values/${encodeURIComponent(range)}?key=${API_KEY}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const data = await response.json();
+        const rows = data.values || [];
+
+        if (rows.length === 0) return { rows: [], headers: [] };
+
+        const headers = rows[0];
+        const dataRows = rows.slice(1).map((row: any[]) => {
+          const obj: SheetData = {};
+          headers.forEach((header: string, index: number) => {
+            obj[header] = row[index] ?? '';
+          });
+          return obj;
         });
-        return obj;
-      });
 
-      return {
-        rows: dataRows,
-        headers,
-      };
-    } catch (error) {
-      console.error('Error fetching sheet data:', error);
-      throw error;
-    }
+        return { rows: dataRows, headers };
+      },
+      opts
+    );
   }
 
-  async getRaidSetup(): Promise<RaidMember[]> {
-    // Fetch the entire raid setup table B1:J41
-    const data = await this.getSheetData(this.spreadsheetId, 'ICC25 Raidsetup!B1:J41');
-    console.log('Raw raid data headers:', data.headers);
-    console.log('Total rows fetched:', data.rows.length);
+  /** Fetch many ranges in ONE network request */
+  async batchGet(ranges: string[], opts?: GetOpts): Promise<any> {
+    const key = `batchGet:${this.spreadsheetId}:${ranges.join('|')}`;
+    return this.cached(
+      key,
+      async () => {
+        const params = ranges.map(r => `ranges=${encodeURIComponent(r)}`).join('&');
+        const url = `${SHEETS_API_URL}/${this.spreadsheetId}/values:batchGet?${params}&key=${API_KEY}`;
 
-    return data.rows.map((row, index) => {
-      const rowNumber = index + 2; // Row numbers start from 2 (after headers)
-      const rowCategory: 'definite' | 'ersatz' | 'unsure' = rowNumber <= 25 ? 'definite' : rowNumber <= 31 ? 'ersatz' : 'unsure';
-
-      return {
-        slot: rowNumber, // Use row number as slot
-        character: row[data.headers[0]] || '', // Character name
-        player: row[data.headers[1]] || '', // Player name
-        class: row[data.headers[2]] || '', // Class
-        spec: row[data.headers[3]] || '', // Spec
-        role: row[data.headers[4]] || '', // Role
-        draenei: row[data.headers[5]] || '', // Draenei
-        manualGroup: row[data.headers[6]] || '', // Manual Group
-        position: parseInt(row[data.headers[7]] || '0'), // Position
-        finalGroup: parseInt(row[data.headers[8]] || '0'), // Final Group
-        rowCategory
-      };
-    }).filter(member => member.character && member.character.trim() !== '');
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      },
+      opts
+    );
   }
 
-  async getPointsData(): Promise<PointsData[]> {
-    const data = await this.getSheetData(this.spreadsheetId, 'Punkte!A1:E100');
-    console.log('Raw points data headers:', data.headers);
-    console.log('First few raw points rows:', data.rows.slice(0, 3));
+  // ------------------------
+  // Parsing helpers
+  // ------------------------
 
-    return data.rows.slice(1).map((row, _index) => ({
-      player: row[data.headers[0]] || '',
-      points: parseInt(row[data.headers[1]] || '0'),
-      tokens: row[data.headers[4]] || '',
-    })).filter(player => player.player && player.player.trim() !== '');
+  private valuesToDashboardData(values: any[][]): DashboardData {
+    if (!values || values.length === 0) return { rows: [], headers: [] };
+    const headers = values[0] ?? [];
+    const rows = (values.slice(1) ?? []).map((row: any[]) => {
+      const obj: SheetData = {};
+      headers.forEach((h: string, i: number) => (obj[h] = row?.[i] ?? ''));
+      return obj;
+    });
+    return { headers, rows };
   }
 
-  async getGroupOverview(): Promise<GroupOverview[]> {
-    const allMembers = await this.getRaidSetup();
+  private parseRaidSetup(data: DashboardData): RaidMember[] {
+    return data.rows
+      .map((row, index) => {
+        const rowNumber = index + 2; // Row numbers start from 2 (after headers)
+        const rowCategory: 'definite' | 'ersatz' | 'unsure' =
+          rowNumber <= 25 ? 'definite' : rowNumber <= 31 ? 'ersatz' : 'unsure';
+
+        return {
+          slot: rowNumber,
+          character: row[data.headers[0]] || '',
+          player: row[data.headers[1]] || '',
+          class: row[data.headers[2]] || '',
+          spec: row[data.headers[3]] || '',
+          role: row[data.headers[4]] || '',
+          draenei: row[data.headers[5]] || '',
+          manualGroup: row[data.headers[6]] || '',
+          position: parseInt((row[data.headers[7]] as string) || '0'),
+          finalGroup: parseInt((row[data.headers[8]] as string) || '0'),
+          rowCategory
+        } as RaidMember;
+      })
+      .filter(member => member.character && member.character.trim() !== '');
+  }
+
+  private parsePoints(data: DashboardData): PointsData[] {
+    return data.rows
+      .map((row) => ({
+        player: row[data.headers[0]] || '',
+        points: parseInt((row[data.headers[1]] as string) || '0'),
+        tokens: row[data.headers[4]] || '',
+      }))
+      .filter(p => p.player && p.player.trim() !== '');
+  }
+
+  private buildGroupOverview(members: RaidMember[], overviewData?: DashboardData): GroupOverview[] {
     const groups: GroupOverview[] = [];
 
     // Initialize groups 1-5
     for (let i = 1; i <= 5; i++) {
-      groups.push({
-        groupName: `Gruppe ${i}`,
-        members: [],
-        buffs: '',
-        draeneiCount: 0,
-      });
+      groups.push({ groupName: `Gruppe ${i}`, members: [], buffs: '', draeneiCount: 0 });
     }
 
     // Initialize Ersatzspieler group
-    groups.push({
-      groupName: 'Ersatzspieler',
-      members: [],
-      buffs: '',
-      draeneiCount: 0,
-    });
+    groups.push({ groupName: 'Ersatzspieler', members: [], buffs: '', draeneiCount: 0 });
 
-    // Process all members and assign them to groups
-    allMembers.forEach(member => {
+    // Assign members to groups
+    members.forEach(member => {
       if (member.finalGroup >= 1 && member.finalGroup <= 5) {
-        // Has a final group assignment (1-5)
         groups[member.finalGroup - 1].members.push(member);
-      } else {
-        // No final group assignment
-        if (member.rowCategory === 'ersatz') {
-          // Ersatzspieler (rows 27-31) without final group go to Ersatzspieler group
-          groups[5].members.push(member);
-        }
-        // Unsure players (rows 32-41) without final group are not shown
+      } else if (member.rowCategory === 'ersatz') {
+        groups[5].members.push(member);
       }
     });
 
-    // Update draenei counts and fetch buff info for groups 1-5
+    // Draenei counts + buffs
     for (let i = 0; i < 5; i++) {
-      groups[i].draeneiCount = groups[i].members.filter(member => member.draenei === 'Ja').length;
+      groups[i].draeneiCount = groups[i].members.filter(m => m.draenei === 'Ja').length;
 
-      // Get buff info from Raid-Overview sheet
-      try {
-        const overviewData = await this.getSheetData(this.spreadsheetId, 'Raid-Overview!A1:I10');
+      if (overviewData) {
         const groupRow = overviewData.rows.find(row =>
-          row['ICC25 Gruppenansicht']?.includes(`Gruppe ${i + 1}`)
+          (row['ICC25 Gruppenansicht'] as string | undefined)?.includes(`Gruppe ${i + 1}`)
         );
-        if (groupRow) {
-          groups[i].buffs = groupRow['Raid Buffs'] || '';
-        }
-      } catch (error) {
-        console.warn('Could not fetch buff info for group', i + 1);
+        if (groupRow) groups[i].buffs = (groupRow['Raid Buffs'] as string) || '';
       }
     }
 
-    // Update draenei count for Ersatzspieler
-    groups[5].draeneiCount = groups[5].members.filter(member => member.draenei === 'Ja').length;
+    groups[5].draeneiCount = groups[5].members.filter(m => m.draenei === 'Ja').length;
 
-    // Remove empty groups (except Ersatzspieler which we always want to show)
-    return groups.filter((group, index) => index === 5 || group.members.length > 0);
+    return groups.filter((g, idx) => idx === 5 || g.members.length > 0);
   }
 
-  async getPlayerCharacters(playerName: string): Promise<any[]> {
-    const data = await this.getSheetData(this.spreadsheetId, 'Charaktere!A1:C100');
-    console.log('Raw characters data headers:', data.headers);
-    console.log('First few raw character rows:', data.rows.slice(0, 5));
-
-    return data.rows.slice(1)
-      .filter((row: any) => row[data.headers[1]] === playerName) // Filter by player name
-      .map((row: any) => ({
-        character: row[data.headers[0]] || '',
-        player: row[data.headers[1]] || '',
-        class: row[data.headers[2]] || '',
-      }))
-      .filter(char => char.character && char.character.trim() !== '');
-  }
-
-  async getPlayerLootHistory(playerName: string): Promise<any[]> {
-    // First get all characters for this player
-    const playerCharacters = await this.getPlayerCharacters(playerName);
-    const characterNames = playerCharacters.map((char: any) => char.character);
-
-    console.log('Player characters for loot lookup:', characterNames);
-
-    // Then get loot archive and filter by character names
-    const lootData = await this.getSheetData(this.spreadsheetId, 'Loot Archive!A1:E1000');
-    console.log('Raw loot archive data headers:', lootData.headers);
-    console.log('First few raw loot rows:', lootData.rows.slice(0, 3));
-
-    return lootData.rows.slice(0)
-      .filter((row: any) => characterNames.includes(row[lootData.headers[2]])) // Filter by character name
-      .map((row: any) => ({
-        raidId: row[lootData.headers[0]] || '',
-        date: row[lootData.headers[1]] || '',
-        character: row[lootData.headers[2]] || '',
-        item: row[lootData.headers[3]] || '',
-        priority: row[lootData.headers[4]] || '',
-      }))
-      .filter(loot => loot.item && loot.item.trim() !== '')
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }
-
-  async getRaidArchive(): Promise<any[]> {
-    // Fetch raw data directly from the API to avoid processing issues
-    const response = await fetch(`${SHEETS_API_URL}/${this.spreadsheetId}/values/Raid%20Archive!A1:Z1000?key=${API_KEY}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const rawData = await response.json();
-    const rows = rawData.values || [];
-
-    if (rows.length < 2) {
-      return [];
-    }
-
-    const headers = rows[0];
-    console.log('Raid archive headers:', headers);
-    console.log('First data row:', rows[1]);
-
-    // Group by raid ID
-    const raids: any[] = [];
-    let currentRaid: any = null;
-
-    rows.slice(1).forEach((row: any[]) => {
-      const raidId = row[0]; // Raid ID (column A)
-      const timestamp = row[1]; // Timestamp (column B)
-      const position = row[2]; // Position (column C)
-      const character = row[3]; // Character (column D)
-      const role = row[4]; // Role (column E)
-
-      if (raidId && raidId !== currentRaid?.id) {
-        if (currentRaid) {
-          raids.push(currentRaid);
-        }
-        currentRaid = {
-          id: raidId,
-          date: timestamp || '',
-          members: [],
-          loot: []
-        };
-      }
-      if (currentRaid && character) { // Character name exists
-        currentRaid.members.push({
-          character: character || '',
-          role: role || '',
-          position: parseInt(position || '0'),
-        });
-      }
-    });
-
-    if (currentRaid) {
-      raids.push(currentRaid);
-    }
-
-    console.log('Processed raids:', raids.length);
-    if (raids.length > 0) {
-      console.log('First raid members:', raids[0].members.length);
-      console.log('First few members:', raids[0].members.slice(0, 3));
-    }
-
-    return raids;
-  }
-
-  async getLootArchive(): Promise<any[]> {
-    // Fetch raw data directly to match actual sheet structure
-    const response = await fetch(`${SHEETS_API_URL}/${this.spreadsheetId}/values/Loot%20Archive!A1:E1000?key=${API_KEY}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const rawData = await response.json();
-    const rows = rawData.values || [];
-
-    if (rows.length < 2) {
-      return [];
-    }
-
-    console.log('Loot archive headers:', rows[0]);
-    console.log('First loot row:', rows[1]);
-
-    return rows.slice(1)
-      .map((row: any[]) => ({
-        raidId: row[0] || '',
-        date: row[1] || '',
-        character: row[2] || '',
-        item: row[3] || '',
-        priority: row[4] || '',
-      }))
-      .filter((loot: any) => loot.item && loot.item.trim() !== '')
-      .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }
-
-  async getCurrentRaidLoot(): Promise<any[]> {
-    // Fetch current raid loot from ICC25 Loot sheet
-    const response = await fetch(`${SHEETS_API_URL}/${this.spreadsheetId}/values/ICC25%20Loot!A1:E1000?key=${API_KEY}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const rawData = await response.json();
-    const rows = rawData.values || [];
-
-    if (rows.length < 2) {
-      return [];
-    }
-
-    console.log('Current raid loot headers:', rows[0]);
-    console.log('First loot row:', rows[1]);
-
-    return rows.slice(1)
-      .map((row: any[]) => ({
-        character: row[0] || '',
-        item: row[1] || '',
-        priority: row[2] || '',
-        date: row[3] || '',
-        notes: row[4] || '',
-      }))
-      .filter((loot: any) => loot.item && loot.item.trim() !== '');
-  }
-
-  async getRaidStats() {
-    const allMembers = await this.getRaidSetup();
-
-    // Only count members that are in the first 5 groups (not Ersatzspieler)
-    const raidMembers = allMembers.filter(member => {
-      return member.finalGroup >= 1 && member.finalGroup <= 5;
-    });
+  private buildRaidStats(members: RaidMember[]) {
+    const raidMembers = members.filter(m => m.finalGroup >= 1 && m.finalGroup <= 5);
 
     const stats = {
       totalMembers: raidMembers.length,
@@ -319,17 +181,196 @@ export class SheetsService {
       groupDistribution: {} as Record<number, number>,
     };
 
-    // Class distribution
     raidMembers.forEach(member => {
       stats.classDistribution[member.class] = (stats.classDistribution[member.class] || 0) + 1;
-    });
-
-    // Group distribution (only groups 1-5)
-    raidMembers.forEach(member => {
       stats.groupDistribution[member.finalGroup] = (stats.groupDistribution[member.finalGroup] || 0) + 1;
     });
 
     return stats;
+  }
+
+  private parseRaidArchiveFromValues(values: any[][]): any[] {
+    const rows = values || [];
+    if (rows.length < 2) return [];
+
+    const raids: any[] = [];
+    let currentRaid: any = null;
+
+    rows.slice(1).forEach((row: any[]) => {
+      const raidId = row[0]; // column A
+      const timestamp = row[1]; // column B
+      const position = row[2]; // column C
+      const character = row[3]; // column D
+      const role = row[4]; // column E
+
+      if (raidId && raidId !== currentRaid?.id) {
+        if (currentRaid) raids.push(currentRaid);
+        currentRaid = { id: raidId, date: timestamp || '', members: [], loot: [] };
+      }
+
+      if (currentRaid && character) {
+        currentRaid.members.push({
+          character: character || '',
+          role: role || '',
+          position: parseInt(position || '0'),
+        });
+      }
+    });
+
+    if (currentRaid) raids.push(currentRaid);
+    return raids;
+  }
+
+  private parseLootArchiveFromValues(values: any[][]): any[] {
+    const rows = values || [];
+    if (rows.length < 2) return [];
+
+    return rows
+      .slice(1)
+      .map((row: any[]) => ({
+        raidId: row[0] || '',
+        date: row[1] || '',
+        character: row[2] || '',
+        item: row[3] || '',
+        priority: row[4] || '',
+      }))
+      .filter((loot: any) => loot.item && loot.item.trim() !== '')
+      .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }
+
+  private parseCurrentLootFromValues(values: any[][]): any[] {
+    const rows = values || [];
+    if (rows.length < 2) return [];
+
+    return rows
+      .slice(1)
+      .map((row: any[]) => ({
+        character: row[0] || '',
+        item: row[1] || '',
+        priority: row[2] || '',
+        date: row[3] || '',
+        notes: row[4] || '',
+      }))
+      .filter((loot: any) => loot.item && loot.item.trim() !== '');
+  }
+
+  // ------------------------
+  // Public API (existing methods kept)
+  // ------------------------
+
+  /** One-call dashboard loader (preferred) */
+  async getDashboardBundle(opts?: GetOpts) {
+    const ranges = [
+      'ICC25 Raidsetup!B1:J41',
+      'Punkte!A1:E100',
+      'Raid-Overview!A1:I10',
+      'Raid Archive!A1:Z1000',
+      'Loot Archive!A1:E1000',
+      'ICC25 Loot!A1:E1000',
+    ];
+
+    const raw = await this.batchGet(ranges, opts);
+    const valueRanges = raw.valueRanges ?? [];
+
+    const getValues = (needle: string): any[][] => {
+      const hit = valueRanges.find((v: any) => (v.range as string)?.includes(needle));
+      return (hit?.values as any[][]) ?? [];
+    };
+
+    const raidSetupData = this.valuesToDashboardData(getValues('ICC25 Raidsetup!B1:J41'));
+    const pointsData = this.valuesToDashboardData(getValues('Punkte!A1:E100'));
+    const overviewData = this.valuesToDashboardData(getValues('Raid-Overview!A1:I10'));
+
+    const members = this.parseRaidSetup(raidSetupData);
+    const points = this.parsePoints(pointsData);
+    const groups = this.buildGroupOverview(members, overviewData);
+    const stats = this.buildRaidStats(members);
+
+    const raidArchive = this.parseRaidArchiveFromValues(getValues('Raid Archive!A1:Z1000'));
+    const lootArchive = this.parseLootArchiveFromValues(getValues('Loot Archive!A1:E1000'));
+    const currentLoot = this.parseCurrentLootFromValues(getValues('ICC25 Loot!A1:E1000'));
+
+    return { members, points, groups, stats, raidArchive, lootArchive, currentLoot };
+  }
+
+  async getRaidSetup(opts?: GetOpts): Promise<RaidMember[]> {
+    const data = await this.getSheetData(this.spreadsheetId, 'ICC25 Raidsetup!B1:J41', opts);
+    return this.parseRaidSetup(data);
+  }
+
+  async getPointsData(opts?: GetOpts): Promise<PointsData[]> {
+    const data = await this.getSheetData(this.spreadsheetId, 'Punkte!A1:E100', opts);
+    return this.parsePoints(data);
+  }
+
+  async getGroupOverview(opts?: GetOpts): Promise<GroupOverview[]> {
+    // getRaidSetup is cached/deduped, and Raid-Overview is fetched ONCE.
+    const [members, overview] = await Promise.all([
+      this.getRaidSetup(opts),
+      this.getSheetData(this.spreadsheetId, 'Raid-Overview!A1:I10', opts).catch(() => undefined),
+    ]);
+
+    return this.buildGroupOverview(members, overview);
+  }
+
+  async getPlayerCharacters(playerName: string, opts?: GetOpts): Promise<any[]> {
+    const data = await this.getSheetData(this.spreadsheetId, 'Charaktere!A1:C100', opts);
+
+    return data.rows
+      .filter((row: any) => row[data.headers[1]] === playerName)
+      .map((row: any) => ({
+        character: row[data.headers[0]] || '',
+        player: row[data.headers[1]] || '',
+        class: row[data.headers[2]] || '',
+      }))
+      .filter(char => char.character && char.character.trim() !== '');
+  }
+
+  async getPlayerLootHistory(playerName: string, playerCharacters?: any[], opts?: GetOpts): Promise<any[]> {
+    const chars = playerCharacters ?? (await this.getPlayerCharacters(playerName, opts));
+    const characterNames = chars.map((c: any) => c.character);
+
+    const lootData = await this.getSheetData(this.spreadsheetId, 'Loot Archive!A1:E1000', opts);
+
+    return lootData.rows
+      .filter((row: any) => characterNames.includes(row[lootData.headers[2]]))
+      .map((row: any) => ({
+        raidId: row[lootData.headers[0]] || '',
+        date: row[lootData.headers[1]] || '',
+        character: row[lootData.headers[2]] || '',
+        item: row[lootData.headers[3]] || '',
+        priority: row[lootData.headers[4]] || '',
+      }))
+      .filter(loot => loot.item && loot.item.trim() !== '')
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }
+
+  async getRaidArchive(opts?: GetOpts): Promise<any[]> {
+    const raw = await this.batchGet(['Raid Archive!A1:Z1000'], opts);
+    const values = raw.valueRanges?.[0]?.values ?? [];
+    return this.parseRaidArchiveFromValues(values);
+  }
+
+  async getLootArchive(opts?: GetOpts): Promise<any[]> {
+    const raw = await this.batchGet(['Loot Archive!A1:E1000'], opts);
+    const values = raw.valueRanges?.[0]?.values ?? [];
+    return this.parseLootArchiveFromValues(values);
+  }
+
+  async getCurrentRaidLoot(opts?: GetOpts): Promise<any[]> {
+    const raw = await this.batchGet(['ICC25 Loot!A1:E1000'], opts);
+    const values = raw.valueRanges?.[0]?.values ?? [];
+    return this.parseCurrentLootFromValues(values);
+  }
+
+  async getRaidStats(opts?: GetOpts) {
+    const members = await this.getRaidSetup(opts);
+    return this.buildRaidStats(members);
+  }
+
+  /** Optional: clear cache (e.g., before logout) */
+  clearCache() {
+    this.cache.clear();
   }
 }
 
