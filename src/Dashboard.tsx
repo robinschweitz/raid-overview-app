@@ -90,7 +90,7 @@ const Dashboard: React.FC = () => {
       'Schamane': '#0070DD',
       'Hexer': '#8788EE',
       'Krieger': '#C69B6D',
-      'Rogue': '#FFF468',
+      'Schurke': '#FFF468',
     };
     return colors[className] || '#666';
   };
