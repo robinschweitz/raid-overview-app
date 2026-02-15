@@ -412,7 +412,7 @@ const Dashboard: React.FC = () => {
                     <div key={idx} className="archive-member">
                       <span className="member-position">#{member.position}</span>
                       <span className="role-icon">{getRoleIcon(member.role)}</span>
-                      <span className="member-name">
+                      <span className="member-name" style={{ color: getClassColor(member.class) }}>
                         {member.character}
                       </span>
                       <span className="member-role">({member.role})</span>
