@@ -197,21 +197,23 @@ export class SheetsService {
     let currentRaid: any = null;
 
     rows.slice(1).forEach((row: any[]) => {
-      const raidId = row[0]; // column A
-      const timestamp = row[1]; // column B
-      const position = row[2]; // column C
-      const character = row[3]; // column D
-      const role = row[4]; // column E
+      const raidId = row[0];       // A
+      const timestamp = row[1];    // B
+      const position = row[2];     // C
+      const character = row[3];    // D
+      const role = row[4];         // E
+      const className = row[5];    // F 
 
       if (raidId && raidId !== currentRaid?.id) {
         if (currentRaid) raids.push(currentRaid);
-        currentRaid = { id: raidId, date: timestamp || '', members: [], loot: [] };
+        currentRaid = { id: raidId, date: timestamp || '', members: [] };
       }
 
       if (currentRaid && character) {
         currentRaid.members.push({
           character: character || '',
           role: role || '',
+          class: className || '',
           position: parseInt(position || '0'),
         });
       }

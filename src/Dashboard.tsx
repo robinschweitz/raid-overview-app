@@ -350,110 +350,116 @@ const Dashboard: React.FC = () => {
           </div>
         )}
 
-        {activeTab === 'raid-archive' && (
-          <div className="tab-content">
-            <h2>Raid Archive</h2>
-            <div className="raid-archive">
-              {!selectedRaid ? (
-                // Raid List View
-                <div className="raid-list">
-                  <h3>Verfügbare Raids</h3>
-                  {raidArchive.length > 0 ? (
-                    <div className="raid-summary-grid">
-                      {raidArchive.map((raid: any, index: number) => (
-                        <div
-                          key={index}
-                          className="raid-summary-card"
-                          onClick={() => setSelectedRaid(raid)}
-                        >
-                          <div className="raid-summary-header">
-                            <h4>{raid.id}</h4>
-                            <span className="raid-date">{raid.date}</span>
+{activeTab === 'raid-archive' && (
+  <div className="tab-content">
+    <h2>Raid Archive</h2>
+    <div className="raid-archive">
+      {!selectedRaid ? (
+        // Raid List View
+        <div className="raid-list">
+          <h3>Verfügbare Raids</h3>
+          {raidArchive.length > 0 ? (
+            <div className="raid-summary-grid">
+              {raidArchive.map((raid: any, index: number) => (
+                <div
+                  key={index}
+                  className="raid-summary-card"
+                  onClick={() => setSelectedRaid(raid)}
+                >
+                  <div className="raid-summary-header">
+                    <h4>{raid.id}</h4>
+                    <span className="raid-date">{raid.date}</span>
+                  </div>
+                  <div className="raid-summary-stats">
+                    <span className="raid-members-count">{raid.members.length} members</span>
+                    <span className="raid-loot-count">
+                      {lootArchive.filter((loot: any) => loot.raidId === raid.id).length} loot items
+                    </span>
+                  </div>
+                  <div className="raid-click-hint">Click to view details</div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-archive">
+              <p>No raid sessions found in archive.</p>
+              <p>Make sure your "Raid Archive" sheet contains historical raid data.</p>
+            </div>
+          )}
+        </div>
+      ) : (
+        // Raid Detail View
+        <div className="raid-detail">
+          <div className="raid-detail-header">
+            <button
+              className="back-button"
+              onClick={() => setSelectedRaid(null)}
+            >
+              ← Zurück
+            </button>
+            <h3>Raid Session: {selectedRaid.id} - {selectedRaid.date}</h3>
+          </div>
+
+          <div className="raid-detail-content">
+            {/* Raid Setup Section */}
+            <div className="raid-detail-section">
+              <h4>Raid Setup</h4>
+              <div className="raid-members">
+                <div className="members-list">
+                  {selectedRaid.members
+                    .sort((a: any, b: any) => a.position - b.position)
+                    .map((member: any, idx: number) => (
+                    <div key={idx} className="archive-member">
+                      <span className="member-position">#{member.position}</span>
+                      <span className="role-icon">{getRoleIcon(member.role)}</span>
+                      <span className="member-name">
+                        {member.character}
+                      </span>
+                      <span className="member-role">({member.role})</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Loot History Section */}
+            <div className="raid-detail-section">
+              <h4>Loot History</h4>
+              {lootArchive.filter((loot: any) => loot.raidId === selectedRaid.id).length > 0 ? (
+                <div className="raid-loot-history">
+                  {lootArchive
+                    .filter((loot: any) => loot.raidId === selectedRaid.id)
+                    .map((loot: any, index: number) => {
+                      const member =
+                        (selectedRaid?.members as any[] | undefined)?.find((m: any) => m.character === loot.character) ??
+                        { character: loot.character, class: '' };
+                      return (
+                        <div key={index} className="loot-item">
+                          <div className="loot-header">
+                            <span className="loot-item-name">{loot.item}</span>
+                            <span className="loot-date">{loot.date}</span>
                           </div>
-                          <div className="raid-summary-stats">
-                            <span className="raid-members-count">{raid.members.length} members</span>
-                            <span className="raid-loot-count">
-                              {lootArchive.filter((loot: any) => loot.raidId === raid.id).length} loot items
+                          <div className="loot-details">
+                            <span className="loot-character" style={{ color: getClassColor(member.class) }}>
+                              {loot.character}
                             </span>
+                            <span className="loot-priority">Priority: {loot.priority}</span>
                           </div>
-                          <div className="raid-click-hint">Click to view details</div>
                         </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="empty-archive">
-                      <p>No raid sessions found in archive.</p>
-                      <p>Make sure your "Raid Archive" sheet contains historical raid data.</p>
-                    </div>
-                  )}
+                      );
+                    })
+                  }
                 </div>
               ) : (
-                // Raid Detail View
-                <div className="raid-detail">
-                  <div className="raid-detail-header">
-                    <button
-                      className="back-button"
-                      onClick={() => setSelectedRaid(null)}
-                    >
-                      ← Zurück
-                    </button>
-                    <h3>Raid Session: {selectedRaid.id} - {selectedRaid.date}</h3>
-                  </div>
-
-                  <div className="raid-detail-content">
-                    {/* Raid Setup Section */}
-                    <div className="raid-detail-section">
-                      <h4>Raid Setup</h4>
-                      <div className="raid-members">
-                        <div className="members-list">
-                          {selectedRaid.members
-                            .sort((a: any, b: any) => a.position - b.position)
-                            .map((member: any, idx: number) => (
-                            <div key={idx} className="archive-member">
-                              <span className="member-position">#{member.position}</span>
-                              <span className="role-icon">{getRoleIcon(member.role)}</span>
-                              <span className="member-name">
-                                {member.character}
-                              </span>
-                              <span className="member-role">({member.role})</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Loot History Section */}
-                    <div className="raid-detail-section">
-                      <h4>Loot History</h4>
-                      {lootArchive.filter((loot: any) => loot.raidId === selectedRaid.id).length > 0 ? (
-                        <div className="raid-loot-history">
-                          {lootArchive
-                            .filter((loot: any) => loot.raidId === selectedRaid.id)
-                            .map((loot: any, index: number) => (
-                            <div key={index} className="loot-item">
-                              <div className="loot-header">
-                                <span className="loot-item-name">{loot.item}</span>
-                                <span className="loot-date">{loot.date}</span>
-                              </div>
-                              <div className="loot-details">
-                                <span className="loot-character" style={{ color: getClassColor(loot.character.split(' ')[1] || '') }}>
-                                  {loot.character}
-                                </span>
-                                <span className="loot-priority">Priority: {loot.priority}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <p>No loot distributed in this raid.</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <p>No loot distributed in this raid.</p>
               )}
             </div>
           </div>
-        )}
+        </div>
+      )}
+    </div>
+  </div>
+)}
 
         {activeTab === 'current-loot' && (
           <div className="tab-content">
@@ -534,21 +540,24 @@ const Dashboard: React.FC = () => {
                   <h4>Loot History</h4>
                   {playerLootHistory.length > 0 ? (
                     <div className="loot-history">
-                      {playerLootHistory.map((loot: any, index: number) => (
-                        <div key={index} className="loot-item">
-                          <div className="loot-header">
-                            <span className="loot-item-name">{loot.item}</span>
-                            <span className="loot-date">{loot.date}</span>
+                      {playerLootHistory.map((loot: any, index: number) => {
+                        const character = playerCharacters.find(c => c.character === loot.character) || { character: loot.character, class: '' };
+                        return (
+                          <div key={index} className="loot-item">
+                            <div className="loot-header">
+                              <span className="loot-item-name">{loot.item}</span>
+                              <span className="loot-date">{loot.date}</span>
+                            </div>
+                            <div className="loot-details">
+                              <span className="loot-character" style={{ color: getClassColor(character.class) }}>
+                                {loot.character}
+                              </span>
+                              <span className="loot-raid">Raid: {loot.raidId}</span>
+                              <span className="loot-priority">Priority: {loot.priority}</span>
+                            </div>
                           </div>
-                          <div className="loot-details">
-                            <span className="loot-character" style={{ color: getClassColor(loot.character.split(' ')[1] || '') }}>
-                              {loot.character}
-                            </span>
-                            <span className="loot-raid">Raid: {loot.raidId}</span>
-                            <span className="loot-priority">Priority: {loot.priority}</span>
-                          </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   ) : (
                     <p>No loot history found for this player.</p>
