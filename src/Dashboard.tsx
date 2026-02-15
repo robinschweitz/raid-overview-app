@@ -383,7 +383,7 @@ const Dashboard: React.FC = () => {
           ) : (
             <div className="empty-archive">
               <p>No raid sessions found in archive.</p>
-              <p>Make sure your "Raid Archive" sheet contains historical raid data.</p>
+              {/* <p>Make sure your "Raid Archive" sheet contains historical raid data.</p> */}
             </div>
           )}
         </div>
@@ -492,8 +492,8 @@ const Dashboard: React.FC = () => {
                 </div>
               ) : (
                 <div className="empty-archive">
-                  <p>No current raid loot found.</p>
-                  <p>Make sure your "ICC25 Loot" sheet contains loot data.</p>
+                  <p>No loot distributed yet.</p>
+                  {/* <p>Once Loot was added to the "ICC25 Loot" sheet this will contain loot data.</p> */}
                 </div>
               )}
             </div>
