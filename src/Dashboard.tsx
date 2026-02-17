@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { sheetsService } from './sheetsService';
 import type { PointsData, GroupOverview } from './types';
+import { PointsTable } from './PointsTable';
+import { RaidLootTable } from './RaidLootTable';
+
 import './Dashboard.css';
 
 type TabType = 'overview' | 'points' | 'stats' | 'current-loot' | 'raid-archive';
@@ -247,31 +250,10 @@ const Dashboard: React.FC = () => {
             <h2>Punkte Liste</h2>
             <div className="points-container">
               <div className="points-table-container">
-                <table className="points-table">
-                  <thead>
-                    <tr>
-                      <th>Spieler</th>
-                      <th>Punkte</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {pointsData
-                      .sort((a, b) => b.points - a.points)
-                      .map((player, index) => (
-                        <tr key={index}>
-                          <td>
-                            <button
-                              className="player-link"
-                              onClick={() => handlePlayerClick(player.player)}
-                            >
-                              {player.player}
-                            </button>
-                          </td>
-                          <td className="points-value">{player.points}</td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
+                <PointsTable
+                  data={pointsData}
+                  onPlayerClick={handlePlayerClick}
+                />
               </div>
             </div>
           </div>
@@ -467,28 +449,13 @@ const Dashboard: React.FC = () => {
             <div className="loot-archive">
               {currentRaidLoot.length > 0 ? (
                 <div className="loot-table-container">
-                  <table className="loot-table">
-                    <thead>
-                      <tr>
-                        <th>Boss</th>
-                        <th>Item</th>
-                        <th>Charakter</th>
-                        <th>Zuweisung</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {currentRaidLoot.map((loot: any, index: number) => (
-                        <tr key={index}>
-                          <td>
-                            {loot.boss}
-                          </td>
-                          <td className="loot-item-cell">{loot.item}</td>
-                          <td>{loot.character}</td>
-                          <td>{loot.priority}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                  {currentRaidLoot.length > 0 ? (
+                    <RaidLootTable data={currentRaidLoot} />
+                  ) : (
+                    <div className="empty-archive">
+                      <p>No loot distributed yet.</p>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="empty-archive">
