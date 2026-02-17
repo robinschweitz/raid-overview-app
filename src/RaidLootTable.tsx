@@ -41,7 +41,15 @@ export function RaidLootTable({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState({});
 
-  const bosses = React.useMemo(() => uniqSorted(data.map((d) => d.boss)), [data]);
+  const bosses = React.useMemo(
+    () =>
+      uniqSorted(
+        data
+          .map((d) => d.boss)
+          .filter((b): b is string => Boolean(b))
+      ),
+    [data]
+  );
   const priorities = React.useMemo(
     () => uniqSorted(data.map((d) => d.priority)),
     [data]
