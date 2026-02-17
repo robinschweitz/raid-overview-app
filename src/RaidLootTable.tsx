@@ -134,7 +134,7 @@ export function RaidLootTable({
   const prioCol = table.getColumn("priority");
 
   const isBossVisible = bossCol?.getIsVisible();
-  const isPriorityVisible = prioCol?.getIsVisible();
+  // const isPriorityVisible = prioCol?.getIsVisible();
 
   return (
     <div className="loot-table-container">
