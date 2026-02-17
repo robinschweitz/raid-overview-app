@@ -409,28 +409,12 @@ const Dashboard: React.FC = () => {
               <h4>Loot History</h4>
               {lootArchive.filter((loot: any) => loot.raidId === selectedRaid.id).length > 0 ? (
                 <div className="raid-loot-history">
-                  {lootArchive
-                    .filter((loot: any) => loot.raidId === selectedRaid.id)
-                    .map((loot: any, index: number) => {
-                      const member =
-                        (selectedRaid?.members as any[] | undefined)?.find((m: any) => m.character === loot.character) ??
-                        { character: loot.character, class: '' };
-                      return (
-                        <div key={index} className="loot-item">
-                          <div className="loot-header">
-                            <span className="loot-item-name">{loot.item}</span>
-                            <span className="loot-date">{loot.date}</span>
-                          </div>
-                          <div className="loot-details">
-                            <span className="loot-character" style={{ color: getClassColor(member.class) }}>
-                              {loot.character}
-                            </span>
-                            <span className="loot-priority">Priority: {loot.priority}</span>
-                          </div>
-                        </div>
-                      );
-                    })
-                  }
+                  <RaidLootTable
+                    data={lootArchive.filter(
+                      (loot: any) => loot.raidId === selectedRaid.id
+                    )}
+                    hiddenColumns={["raidId","date"]}
+                  />
                 </div>
               ) : (
                 <p>No loot distributed in this raid.</p>
@@ -450,7 +434,7 @@ const Dashboard: React.FC = () => {
               {currentRaidLoot.length > 0 ? (
                 <div className="loot-table-container">
                   {currentRaidLoot.length > 0 ? (
-                    <RaidLootTable data={currentRaidLoot} />
+                    <RaidLootTable data={currentRaidLoot} hiddenColumns={["date"]}/>
                   ) : (
                     <div className="empty-archive">
                       <p>No loot distributed yet.</p>
@@ -507,28 +491,7 @@ const Dashboard: React.FC = () => {
                   <h4>Loot History</h4>
                   {playerLootHistory.length > 0 ? (
                     <div className="loot-history">
-                      {playerLootHistory.map((loot: any, index: number) => {
-                        const character = playerCharacters.find(c => c.character === loot.character) || { character: loot.character, class: '' };
-                        return (
-                          <div key={index} className="loot-item">
-                            <div className="loot-header">
-                              <span className="loot-item-name">{loot.item}</span>
-                              <span className="loot-date">{loot.date}</span>
-                            </div>
-                            <div className="loot-details">
-                              <span className="loot-character" style={{ color: getClassColor(character.class) }}>
-                                {loot.character}
-                              </span>
-                              {loot.raidId && (
-                                <span className="loot-raid">
-                                  Raid: {loot.raidId}
-                                </span>
-                              )}
-                              <span className="loot-priority">Priority: {loot.priority}</span>
-                            </div>
-                          </div>
-                        );
-                      })}
+                      <RaidLootTable data={playerLootHistory} />
                     </div>
                   ) : (
                     <p>No loot history found for this player.</p>

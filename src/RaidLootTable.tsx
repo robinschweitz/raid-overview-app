@@ -15,7 +15,9 @@ import type {
 } from "@tanstack/react-table";
 
 type LootRow = {
-  boss: string;
+  raidId?: string;
+  date?: string;
+  boss?: string;
   item: string;
   character: string;
   priority: string;
@@ -27,12 +29,17 @@ function uniqSorted(values: string[]) {
   );
 }
 
-export function RaidLootTable({ data }: { data: LootRow[] }) {
+export function RaidLootTable({
+    data,
+    hiddenColumns = [],
+  }: {
+    data: LootRow[];
+    hiddenColumns?: string[];
+  }) {
   const [globalFilter, setGlobalFilter] = React.useState("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = React.useState({});
 
   const bosses = React.useMemo(() => uniqSorted(data.map((d) => d.boss)), [data]);
   const priorities = React.useMemo(
@@ -40,45 +47,78 @@ export function RaidLootTable({ data }: { data: LootRow[] }) {
     [data]
   );
 
-  const columns = React.useMemo<ColumnDef<LootRow>[]>(
-    () => [
-      {
+  React.useEffect(() => {
+    const visibility: Record<string, boolean> = {};
+
+    hiddenColumns.forEach((col) => {
+      visibility[col] = false;
+    });
+
+    setColumnVisibility(visibility);
+  }, [hiddenColumns]);
+
+  const columns = React.useMemo<ColumnDef<LootRow>[]>(() => {
+    const base: ColumnDef<LootRow>[] = [];
+
+    if (data.some(d => d.raidId)) {
+        base.push({
+        accessorKey: "raidId",
+        header: "Raid",
+        });
+    }
+
+    if (data.some(d => d.date)) {
+        base.push({
+        accessorKey: "date",
+        header: "Datum",
+        });
+    }
+
+    if (data.some(d => d.boss)) {
+        base.push({
         accessorKey: "boss",
         header: "Boss",
         enableColumnFilter: true,
-      },
-      {
+        });
+    }
+
+    base.push(
+        {
         accessorKey: "item",
         header: "Item",
-      },
-      {
+        },
+        {
         accessorKey: "character",
         header: "Charakter",
-      },
-      {
+        },
+        {
         accessorKey: "priority",
         header: "Zuweisung",
         enableColumnFilter: true,
-      },
-    ],
-    []
-  );
+        }
+    );
+
+    return base;
+  }, [data]);
 
   const table = useReactTable({
     data,
     columns,
-    state: { globalFilter, sorting, columnFilters },
+    state: {
+      globalFilter,
+      sorting,
+      columnFilters,
+      columnVisibility,
+    },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
+    onColumnVisibilityChange: setColumnVisibility,
     globalFilterFn: "includesString",
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    initialState: {
-      pagination: { pageSize: 15 },
-    },
   });
 
   // Helpers for dropdown filters
