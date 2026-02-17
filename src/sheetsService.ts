@@ -9,12 +9,18 @@ const SHEETS_API_URL = 'https://sheets.googleapis.com/v4/spreadsheets';
 type CacheEntry<T> = { expiresAt: number; promise: Promise<T> };
 type GetOpts = { force?: boolean; ttlMs?: number };
 
+export interface LootData {
+  currentRaidLoot: any[];
+  lootArchive: any[];
+}
+
 export class SheetsService {
   private spreadsheetId = import.meta.env.VITE_GOOGLE_SHEETS_SPREADSHEET_ID ?? '';
 
   // Simple in-memory promise cache to dedupe identical requests (including concurrent ones)
   private cache = new Map<string, CacheEntry<any>>();
   private defaultTtlMs = 30_000; // 30s
+  private lootCache: LootData | null = null;
 
   private cached<T>(key: string, fetcher: () => Promise<T>, opts?: GetOpts): Promise<T> {
     const now = Date.now();
@@ -247,10 +253,11 @@ export class SheetsService {
     return rows
       .slice(1)
       .map((row: any[]) => ({
-        character: row[0] || '',
+        boss: row[0] || '',
+        character: row[2] || '',
         item: row[1] || '',
-        priority: row[2] || '',
-        date: row[3] || '',
+        priority: row[3] || '',
+        date: 'Current Raid',
         notes: row[4] || '',
       }))
       .filter((loot: any) => loot.item && loot.item.trim() !== '');
@@ -329,22 +336,27 @@ export class SheetsService {
   }
 
   async getPlayerLootHistory(playerName: string, playerCharacters?: any[], opts?: GetOpts): Promise<any[]> {
+    // Load all loot data if not already cached
+    if (!this.lootCache) {
+      const [currentLoot, lootArchive] = await Promise.all([
+        this.getCurrentRaidLoot(opts),
+        this.getLootArchive(opts)
+      ]);
+      this.lootCache = { currentRaidLoot: currentLoot, lootArchive };
+    }
+
     const chars = playerCharacters ?? (await this.getPlayerCharacters(playerName, opts));
     const characterNames = chars.map((c: any) => c.character);
 
-    const lootData = await this.getSheetData(this.spreadsheetId, 'Loot Archive!A1:E1000', opts);
+    // Combine current raid loot and loot archive for the player
+    const allLoot = [
+      ...this.lootCache.currentRaidLoot.filter(loot => characterNames.includes(loot.character)),
+      ...this.lootCache.lootArchive.filter(loot => characterNames.includes(loot.character))
+    ];
 
-    return lootData.rows
-      .filter((row: any) => characterNames.includes(row[lootData.headers[2]]))
-      .map((row: any) => ({
-        raidId: row[lootData.headers[0]] || '',
-        date: row[lootData.headers[1]] || '',
-        character: row[lootData.headers[2]] || '',
-        item: row[lootData.headers[3]] || '',
-        priority: row[lootData.headers[4]] || '',
-      }))
+    return allLoot
       .filter(loot => loot.item && loot.item.trim() !== '')
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }
 
   async getRaidArchive(opts?: GetOpts): Promise<any[]> {
@@ -373,6 +385,7 @@ export class SheetsService {
   /** Optional: clear cache (e.g., before logout) */
   clearCache() {
     this.cache.clear();
+    this.lootCache = null;
   }
 }
 

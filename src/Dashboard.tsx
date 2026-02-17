@@ -480,11 +480,11 @@ const Dashboard: React.FC = () => {
                       {currentRaidLoot.map((loot: any, index: number) => (
                         <tr key={index}>
                           <td>
-                            {loot.character}
+                            {loot.boss}
                           </td>
                           <td className="loot-item-cell">{loot.item}</td>
+                          <td>{loot.character}</td>
                           <td>{loot.priority}</td>
-                          <td>{loot.date}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -552,7 +552,11 @@ const Dashboard: React.FC = () => {
                               <span className="loot-character" style={{ color: getClassColor(character.class) }}>
                                 {loot.character}
                               </span>
-                              <span className="loot-raid">Raid: {loot.raidId}</span>
+                              {loot.raidId && (
+                                <span className="loot-raid">
+                                  Raid: {loot.raidId}
+                                </span>
+                              )}
                               <span className="loot-priority">Priority: {loot.priority}</span>
                             </div>
                           </div>
