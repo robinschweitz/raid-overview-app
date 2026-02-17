@@ -88,7 +88,7 @@ const Dashboard: React.FC = () => {
       'Paladin': '#F48CBA',
       'Priester': '#FFFFFF',
       'Schamane': '#0070DD',
-      'Hexer': '#8788EE',
+      'Hexenmeister': '#8788EE',
       'Krieger': '#C69B6D',
       'Schurke': '#FFF468',
     };
