@@ -6,6 +6,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
+  getExpandedRowModel,
 } from "@tanstack/react-table";
 
 import type {
@@ -40,6 +41,7 @@ export function RaidLootTable({
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState({});
+  const [expanded, setExpanded] = React.useState({});
 
   const bosses = React.useMemo(
     () =>
@@ -117,12 +119,15 @@ export function RaidLootTable({
       sorting,
       columnFilters,
       columnVisibility,
+      expanded,
     },
     onGlobalFilterChange: setGlobalFilter,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     globalFilterFn: "includesString",
+    onExpandedChange: setExpanded,
+    getExpandedRowModel: getExpandedRowModel(),
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -224,13 +229,30 @@ export function RaidLootTable({
 
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <React.Fragment key={row.id}>
+            <tr
+              onClick={() => row.toggleExpanded()}
+              style={{ cursor: "pointer" }}
+            >
+            {/* <tr key={row.id}> */}
               {row.getVisibleCells().map((cell) => (
                 <td key={cell.id} className={cell.column.id === "item" ? "loot-item-cell" : ""}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
             </tr>
+            {row.getIsExpanded() && (
+            <tr>
+              <td colSpan={row.getVisibleCells().length}>
+                <div style={{ padding: 12, background: "#1e1e1e" }}>
+                  <strong>Item:</strong> {row.original.item}
+                  <br />
+                  <strong>Boss:</strong> {row.original.boss}
+                </div>
+              </td>
+            </tr>
+          )}
+        </React.Fragment>
           ))}
         </tbody>
       </table>
