@@ -450,8 +450,8 @@
   backdrop-filter: blur(15px);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  max-width: 600px;
-  width: 90%;
+  /* max-width: 600px; */
+  /* width: 90%; */
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -506,6 +506,8 @@
   border-radius: 8px;
   padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 40%;
+  margin: auto;
 }
 
 .character-header {
@@ -513,6 +515,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  justify-content: center;
 }
 
 .character-header .character-name {
@@ -526,6 +529,7 @@
   gap: 10px;
   font-size: 0.9rem;
   opacity: 0.9;
+  justify-content: center;
 }
 
 .character-details span {

@@ -491,7 +491,7 @@ const Dashboard: React.FC = () => {
                   <h4>Loot History</h4>
                   {playerLootHistory.length > 0 ? (
                     <div className="loot-history">
-                      <RaidLootTable data={playerLootHistory} />
+                      <RaidLootTable data={playerLootHistory} hiddenColumns={["raidId","boss"]}/>
                     </div>
                   ) : (
                     <p>No loot history found for this player.</p>

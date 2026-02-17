@@ -133,6 +133,9 @@ export function RaidLootTable({
   const bossCol = table.getColumn("boss");
   const prioCol = table.getColumn("priority");
 
+  const isBossVisible = bossCol?.getIsVisible();
+  const isPriorityVisible = prioCol?.getIsVisible();
+
   return (
     <div className="loot-table-container">
       {/* Filters Row */}
@@ -148,22 +151,26 @@ export function RaidLootTable({
         <input
           value={globalFilter ?? ""}
           onChange={(e) => setGlobalFilter(e.target.value)}
-          placeholder="Search (boss, item, charakter, prio)..."
+          placeholder="Search (item, charakter, ...)"
           style={{ padding: 8, minWidth: 260 }}
         />
 
-        <select
-          value={(bossCol?.getFilterValue() as string) ?? ""}
-          onChange={(e) => bossCol?.setFilterValue(e.target.value || undefined)}
-          style={{ padding: 8 }}
-        >
-          <option value="">Alle Bosse</option>
-          {bosses.map((b) => (
-            <option key={b} value={b}>
-              {b}
-            </option>
-          ))}
-        </select>
+        {isBossVisible && (
+          <select
+            value={(bossCol?.getFilterValue() as string) ?? ""}
+            onChange={(e) =>
+              bossCol?.setFilterValue(e.target.value || undefined)
+            }
+            style={{ padding: 8 }}
+          >
+            <option value="">All Bosses</option>
+            {bosses.map((b: string) => (
+              <option key={b} value={b}>
+                {b}
+              </option>
+            ))}
+          </select>
+        )}
 
         <select
           value={(prioCol?.getFilterValue() as string) ?? ""}
