@@ -421,7 +421,7 @@ const Dashboard: React.FC = () => {
                     data={lootArchive.filter(
                       (loot: any) => loot.raidId === selectedRaid.id
                     )}
-                    hiddenColumns={["raidId","date"]}
+                    hiddenColumns={["raidId","date","itemId"]}
                   />
                 </div>
               ) : (
@@ -442,7 +442,7 @@ const Dashboard: React.FC = () => {
               {currentRaidLoot.length > 0 ? (
                 <div className="loot-table-container">
                   {currentRaidLoot.length > 0 ? (
-                    <RaidLootTable data={currentRaidLoot} hiddenColumns={["date"]}/>
+                    <RaidLootTable data={currentRaidLoot} hiddenColumns={["date","itemId"]}/>
                   ) : (
                     <div className="empty-archive">
                       <p>No loot distributed yet.</p>
@@ -499,7 +499,7 @@ const Dashboard: React.FC = () => {
                   <h4>Loot History</h4>
                   {playerLootHistory.length > 0 ? (
                     <div className="loot-history">
-                      <RaidLootTable data={playerLootHistory} hiddenColumns={["raidId","boss"]}/>
+                      <RaidLootTable data={playerLootHistory} hiddenColumns={["raidId","boss","itemId"]}/>
                     </div>
                   ) : (
                     <p>No loot history found for this player.</p>
