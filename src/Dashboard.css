@@ -551,6 +551,7 @@
   border-radius: 12px;
   padding: 25px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-x: auto;
 }
 
 /* Raid Archive Styles */
@@ -562,7 +563,7 @@
 
 .raid-summary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
