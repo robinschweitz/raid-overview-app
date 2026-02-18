@@ -15,6 +15,32 @@ import type {
   SortingState,
 } from "@tanstack/react-table";
 
+import icc_items from "./data/items.json";
+
+type IccItem = { name_dede: string; quality: number; icon: string };
+const items = icc_items as Record<string, IccItem>;
+
+type ItemInfo = {
+  id: number;
+  icon: string;
+};
+
+// const items = (icc_items as any).default ?? icc_items;
+
+const norm = (s: string) =>
+  s.toLowerCase().replaceAll("’", "'").trim();
+
+const nameToItem: Record<string, ItemInfo> = {};
+
+for (const [id, item] of Object.entries(items)) {
+  if (!item?.name_dede) continue;
+
+  nameToItem[norm(item.name_dede)] = {
+    id: Number(id),
+    icon: item.icon,
+  };
+}
+
 type LootRow = {
   raidId?: string;
   date?: string;
@@ -245,7 +271,47 @@ export function RaidLootTable({
             <tr>
               <td colSpan={row.getVisibleCells().length}>
                 <div style={{ padding: 12, background: "#1e1e1e" }}>
-                  <strong>Item:</strong> {row.original.item}
+                    {(() => {
+                              const info = nameToItem[norm(row.original.item)];
+
+                              if (!info) {
+                                return (
+                                  <>
+                                    <div><strong>Item:</strong> {row.original.item}</div>
+                                    <div><strong>Item ID:</strong> <em>nicht gefunden</em></div>
+                                  </>
+                                );
+                              }
+
+                              const wowheadUrl = `https://www.wowhead.com/wotlk/de/item=${info.id}`;
+                              const iconUrl = `https://wow.zamimg.com/images/wow/icons/large/${info.icon}.jpg`;
+
+                              return (
+                                <>
+                                  <div style={{ display: "flex", alignItems: "center", gap: 10, justifyContent: "center", textAlign: "left"}}>
+                                    <img
+                                      src={iconUrl}
+                                      alt=""
+                                      width={32}
+                                      height={32}
+                                      style={{ borderRadius: 4 }}
+                                    />
+                                    <div>
+                                      <div>
+                                        <strong>Item:</strong>{" "}
+                                        <a href={wowheadUrl} target="_blank" rel="noreferrer">
+                                          {row.original.item}
+                                        </a>
+                                      </div>
+
+                                      <div>
+                                        <strong>Item ID:</strong> {info.id}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </>
+                              );
+                            })()}
                 </div>
               </td>
             </tr>

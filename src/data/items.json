@@ -1,0 +1,1517 @@
+{
+  "49949": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_83",
+    "name_dede": "Band des Knochenkolosses"
+  },
+  "49950": {
+    "quality": 4,
+    "icon": "inv_boots_leather_07",
+    "name_dede": "Gefrorene Pelzstiefel"
+  },
+  "49951": {
+    "quality": 4,
+    "icon": "inv_chest_plate_25",
+    "name_dede": "Kürass des Gendarmen"
+  },
+  "49952": {
+    "quality": 4,
+    "icon": "inv_helmet_158",
+    "name_dede": "Panzerhelm der Schneeschlange"
+  },
+  "49960": {
+    "quality": 4,
+    "icon": "inv_bracer_42",
+    "name_dede": "Armschienen der dunklen Abrechnung"
+  },
+  "49964": {
+    "quality": 4,
+    "icon": "inv_pants_plate_32",
+    "name_dede": "Beinschützer der verlorenen Hoffnung"
+  },
+  "49967": {
+    "quality": 4,
+    "icon": "item_icecrownringb",
+    "name_dede": "Mark'gars kaltes Auge"
+  },
+  "49968": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_101",
+    "name_dede": "Gefrorener Knochenstachel"
+  },
+  "49975": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_53",
+    "name_dede": "Amulett der Knochenschildwache"
+  },
+  "49977": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_82",
+    "name_dede": "Fingerreif des endlosen Labyrinths"
+  },
+  "49978": {
+    "quality": 4,
+    "icon": "inv_belt_66",
+    "name_dede": "Zerschmetternder Eisgespenstergürtel"
+  },
+  "49979": {
+    "quality": 4,
+    "icon": "inv_gauntlets_83",
+    "name_dede": "Handschützer der Winterflucht"
+  },
+  "49980": {
+    "quality": 4,
+    "icon": "inv_shoulder_117",
+    "name_dede": "Verrostete Knochenspitzenschulterstücke"
+  },
+  "49981": {
+    "quality": 4,
+    "icon": "inv_weapon_crossbow_38",
+    "name_dede": "Fal'inrush, Verteidiger von Quel'Thalas"
+  },
+  "49982": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_103",
+    "name_dede": "Herzdurchbohrer"
+  },
+  "49983": {
+    "quality": 4,
+    "icon": "inv_boots_plate_12",
+    "name_dede": "Blutgetränkte Saronitstampfer"
+  },
+  "49985": {
+    "quality": 4,
+    "icon": "item_icecrownringd",
+    "name_dede": "Molochband"
+  },
+  "49986": {
+    "quality": 4,
+    "icon": "inv_helmet_158",
+    "name_dede": "Zerbrochener Widderschädelhelm"
+  },
+  "49987": {
+    "quality": 4,
+    "icon": "inv_shoulder_112",
+    "name_dede": "Blutgetränkte Schulterpolster des Kultisten"
+  },
+  "49989": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_48",
+    "name_dede": "Onyxnackenschutz der Ahn'kahar"
+  },
+  "49990": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_ahnqiraj_05",
+    "name_dede": "Ring des Unerträglichen Flüsterns"
+  },
+  "49991": {
+    "quality": 4,
+    "icon": "inv_shoulder_116",
+    "name_dede": "Schultern des Gnadentods"
+  },
+  "49992": {
+    "quality": 4,
+    "icon": "inv_staff_109",
+    "name_dede": "Nibelung"
+  },
+  "49993": {
+    "quality": 4,
+    "icon": "inv_boots_mail_10",
+    "name_dede": "Nekrophotische Schienbeinschützer"
+  },
+  "49994": {
+    "quality": 4,
+    "icon": "inv_bracer_45",
+    "name_dede": "Brüchige Armschienen der Lady"
+  },
+  "49995": {
+    "quality": 4,
+    "icon": "inv_gauntlets_85",
+    "name_dede": "Handschützer des gefallenen Lords"
+  },
+  "49996": {
+    "quality": 4,
+    "icon": "inv_chest_leather_21",
+    "name_dede": "Todeswispers Gewandung"
+  },
+  "49997": {
+    "quality": 4,
+    "icon": "inv_mace_117",
+    "name_dede": "Mithrios, Bronzebarts Vermächtnis"
+  },
+  "49999": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_83",
+    "name_dede": "Kreis des Skelettfürsten"
+  },
+  "50000": {
+    "quality": 4,
+    "icon": "inv_bracer_40",
+    "name_dede": "Unterarmschienen des Geißeljägers"
+  },
+  "50001": {
+    "quality": 4,
+    "icon": "inv_chest_leather_22",
+    "name_dede": "Ikfirus' Wundersack"
+  },
+  "50002": {
+    "quality": 4,
+    "icon": "inv_bracer_42",
+    "name_dede": "Armschienen aus Eisbärenklauen"
+  },
+  "50003": {
+    "quality": 4,
+    "icon": "inv_shoulder_129",
+    "name_dede": "Schulterstücke des Kommandanten der Knochenwache"
+  },
+  "50005": {
+    "quality": 4,
+    "icon": "item_icecrownnecklaced",
+    "name_dede": "Amulett der lautlosen Euloge"
+  },
+  "50006": {
+    "quality": 4,
+    "icon": "inv_helmet_156",
+    "name_dede": "Zeremonienkrone von Corp'rethar"
+  },
+  "50008": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_86",
+    "name_dede": "Ring des Schnellen Aufstiegs"
+  },
+  "50009": {
+    "quality": 4,
+    "icon": "inv_boots_leather_8",
+    "name_dede": "Stiefel des unnatürlichen Wachstums"
+  },
+  "50010": {
+    "quality": 4,
+    "icon": "inv_belt_70",
+    "name_dede": "Gürtelbund des gerechten Zorns"
+  },
+  "50012": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Chaosruf, Klinge der Könige von Lordaeron"
+  },
+  "50014": {
+    "quality": 4,
+    "icon": "item_icecrowncape",
+    "name_dede": "Großumhang des bekehrten Champions"
+  },
+  "50015": {
+    "quality": 4,
+    "icon": "inv_belt_83",
+    "name_dede": "Gürtel der Blutnova"
+  },
+  "50016": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_105",
+    "name_dede": "Rippenspreizer"
+  },
+  "50019": {
+    "quality": 4,
+    "icon": "item_icecrowncape",
+    "name_dede": "Gewundenes Laken"
+  },
+  "50020": {
+    "quality": 4,
+    "icon": "inv_shoulder_129",
+    "name_dede": "Schulterplatten des tobenden Ungetüms"
+  },
+  "50021": {
+    "quality": 4,
+    "icon": "inv_gauntlets_79",
+    "name_dede": "Aldrianas Handschuhe der Geheimhaltung"
+  },
+  "50022": {
+    "quality": 4,
+    "icon": "inv_shoulder_113",
+    "name_dede": "Doppelklingenschulterstücke"
+  },
+  "50023": {
+    "quality": 4,
+    "icon": "item_icecrownnecklaceb",
+    "name_dede": "Galleverkrustetes Medaillon"
+  },
+  "50024": {
+    "quality": 4,
+    "icon": "inv_chest_plate_25",
+    "name_dede": "Kriegsplatte des Seuchenerben"
+  },
+  "50025": {
+    "quality": 4,
+    "icon": "item_icecrownringc",
+    "name_dede": "Siegel der vielen Münder"
+  },
+  "50026": {
+    "quality": 4,
+    "icon": "inv_helmet_148",
+    "name_dede": "Helm des ältesten Mondes"
+  },
+  "50027": {
+    "quality": 4,
+    "icon": "inv_chest_plate22",
+    "name_dede": "Moderresistente Brustplatte"
+  },
+  "50028": {
+    "quality": 4,
+    "icon": "inv_mace_118",
+    "name_dede": "Trauma"
+  },
+  "50030": {
+    "quality": 4,
+    "icon": "inv_bracer_60",
+    "name_dede": "Blutspritzers Armschienen"
+  },
+  "50032": {
+    "quality": 4,
+    "icon": "inv_bracer_47",
+    "name_dede": "Ärmel des Todeschirurgen"
+  },
+  "50033": {
+    "quality": 4,
+    "icon": "inv_wand_35",
+    "name_dede": "Leichendurchbohrender Stachel"
+  },
+  "50034": {
+    "quality": 4,
+    "icon": "inv_weapon_bow_55",
+    "name_dede": "Zods Repetierlangbogen"
+  },
+  "50035": {
+    "quality": 4,
+    "icon": "inv_weapon_hand_33",
+    "name_dede": "Schwarze Prellung"
+  },
+  "50036": {
+    "quality": 4,
+    "icon": "inv_belt_62",
+    "name_dede": "Gürtel der gebrochenen Knochen"
+  },
+  "50038": {
+    "quality": 4,
+    "icon": "inv_chest_mail_11",
+    "name_dede": "Knochenpanzer der vergessenen Könige"
+  },
+  "50040": {
+    "quality": 4,
+    "icon": "inv_staff_107",
+    "name_dede": "Fernes Land"
+  },
+  "50041": {
+    "quality": 4,
+    "icon": "inv_pants_leather_35",
+    "name_dede": "Leder aus vernähten Geißelteilen"
+  },
+  "50042": {
+    "quality": 4,
+    "icon": "inv_pants_leather_34",
+    "name_dede": "Gangranöse Gamaschen"
+  },
+  "50056": {
+    "quality": 4,
+    "icon": "inv_pants_cloth_34",
+    "name_dede": "Befleckte Hose des Seuchenfürsten"
+  },
+  "50059": {
+    "quality": 4,
+    "icon": "inv_shoulder_133",
+    "name_dede": "Schreckliche Fleischschulterklappen"
+  },
+  "50060": {
+    "quality": 4,
+    "icon": "inv_helmet_154",
+    "name_dede": "Gesichtsschutz des Vergessenen"
+  },
+  "50061": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_49",
+    "name_dede": "Segen der Feiertage"
+  },
+  "50062": {
+    "quality": 4,
+    "icon": "inv_boots_cloth_25",
+    "name_dede": "Stiefel des Seuchenwissenschaftlers"
+  },
+  "50063": {
+    "quality": 4,
+    "icon": "inv_belt_68",
+    "name_dede": "Siechtum"
+  },
+  "50065": {
+    "quality": 4,
+    "icon": "inv_shield_75",
+    "name_dede": "Gletscherwand aus Eiskrone"
+  },
+  "50067": {
+    "quality": 4,
+    "icon": "inv_belt_61",
+    "name_dede": "Astrylians Vernähter Gurt"
+  },
+  "50068": {
+    "quality": 4,
+    "icon": "inv_sword_152",
+    "name_dede": "Rigormortis"
+  },
+  "50069": {
+    "quality": 4,
+    "icon": "inv_belt_59",
+    "name_dede": "Blutiger Kittel des Professors"
+  },
+  "50070": {
+    "quality": 4,
+    "icon": "inv_sword_153",
+    "name_dede": "Glorenzelg, die Hohe Klinge der Silbernen Hand"
+  },
+  "50178": {
+    "quality": 4,
+    "icon": "inv_weapon_staff_109",
+    "name_dede": "Blutfall"
+  },
+  "50179": {
+    "quality": 4,
+    "icon": "inv_mace_114",
+    "name_dede": "Das letzte Wort"
+  },
+  "50180": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_50",
+    "name_dede": "Lana'thels Kette der Geißelung"
+  },
+  "50181": {
+    "quality": 4,
+    "icon": "inv_staff_106",
+    "name_dede": "Verlöschendes Licht"
+  },
+  "50182": {
+    "quality": 4,
+    "icon": "inv_jewelcrafting_crimsonspinel_02",
+    "name_dede": "Purpurroter Halsreif der Blutkönigin"
+  },
+  "50274": {
+    "quality": 5,
+    "icon": "inv_enchant_shardshadowfrostlarge",
+    "name_dede": "Schattenfrostsplitter"
+  },
+  "50333": {
+    "quality": 4,
+    "icon": "inv_bracer_41",
+    "name_dede": "Toskks maximierte Handgelenksschützer"
+  },
+  "50343": {
+    "quality": 4,
+    "icon": "inv_misc_bone_skull_02",
+    "name_dede": "Flüsternder Gezahnter Schädel"
+  },
+  "50344": {
+    "quality": 4,
+    "icon": "inv_ore_feliron_01",
+    "name_dede": "Unidentifizierbares Organ"
+  },
+  "50346": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_05",
+    "name_dede": "Splitter aus reinem Eis"
+  },
+  "50348": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_01",
+    "name_dede": "Entfernter Fremdkörper"
+  },
+  "50349": {
+    "quality": 4,
+    "icon": "inv_misc_coin_18",
+    "name_dede": "Fährmünze der Toten"
+  },
+  "50351": {
+    "quality": 4,
+    "icon": "inv_alchemy_enchantedvial",
+    "name_dede": "Winzige Monstrosität im Glas"
+  },
+  "50352": {
+    "quality": 4,
+    "icon": "inv_misc_coin_18",
+    "name_dede": "Fährmünze der Toten"
+  },
+  "50353": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_01",
+    "name_dede": "Entfernter Fremdkörper"
+  },
+  "50354": {
+    "quality": 4,
+    "icon": "inv_jewelcrafting_gem_28",
+    "name_dede": "Schmuckstück des wahren Blutes"
+  },
+  "50359": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_02",
+    "name_dede": "Althors Abakus"
+  },
+  "50362": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_04",
+    "name_dede": "Wille des Todesbringers"
+  },
+  "50363": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_04",
+    "name_dede": "Wille des Todesbringers"
+  },
+  "50366": {
+    "quality": 4,
+    "icon": "inv_jewelry_trinket_02",
+    "name_dede": "Althors Abakus"
+  },
+  "50411": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Kriegsaxt des Geißelerben"
+  },
+  "50412": {
+    "quality": 4,
+    "icon": "inv_sword_154",
+    "name_dede": "Blutgiftklinge"
+  },
+  "50413": {
+    "quality": 4,
+    "icon": "inv_belt_60",
+    "name_dede": "Kordel des Nerub'arhäschers"
+  },
+  "50415": {
+    "quality": 4,
+    "icon": "inv_axe_120",
+    "name_dede": "Bryntroll, der Knochenrächer"
+  },
+  "50425": {
+    "quality": 4,
+    "icon": "inv_weapon_staff_109",
+    "name_dede": "Schwurbinder, Kraft des Waldläufergenerals"
+  },
+  "50426": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_104",
+    "name_dede": "Himmelsfall, Kris der tausend Lügen"
+  },
+  "50427": {
+    "quality": 4,
+    "icon": "inv_sword_150",
+    "name_dede": "Blutschäumer, Kel'Thuzad's Klinge der Pein"
+  },
+  "50428": {
+    "quality": 4,
+    "icon": "inv_mace_115",
+    "name_dede": "Königliches Szepter von Terenas II"
+  },
+  "50429": {
+    "quality": 4,
+    "icon": "inv_staff_108",
+    "name_dede": "Archus, Hohestab des Antonidas"
+  },
+  "50444": {
+    "quality": 4,
+    "icon": "inv_weapon_rifle_39",
+    "name_dede": "Rowans Gewehr der Silberkugeln"
+  },
+  "50447": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_84",
+    "name_dede": "Knochenband des Herolds"
+  },
+  "50449": {
+    "quality": 4,
+    "icon": "inv_shoulder_119",
+    "name_dede": "Steife Leichenschulterpolster"
+  },
+  "50450": {
+    "quality": 4,
+    "icon": "inv_pants_mail_35",
+    "name_dede": "Gamaschen der zweifelhaften Reize"
+  },
+  "50452": {
+    "quality": 4,
+    "icon": "inv_misc_pelt_wolf_ruin_01",
+    "name_dede": "Wodins Glückshalskette"
+  },
+  "50453": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_81",
+    "name_dede": "Ring aus faulenden Sehnen"
+  },
+  "50604": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_83",
+    "name_dede": "Band des Knochenkolosses"
+  },
+  "50605": {
+    "quality": 4,
+    "icon": "inv_helmet_158",
+    "name_dede": "Panzerhelm der Schneeschlange"
+  },
+  "50606": {
+    "quality": 4,
+    "icon": "inv_chest_plate_26",
+    "name_dede": "Kürass des Gendarmen"
+  },
+  "50607": {
+    "quality": 4,
+    "icon": "inv_boots_leather_07",
+    "name_dede": "Gefrorene Pelzstiefel"
+  },
+  "50608": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_101",
+    "name_dede": "Gefrorener Knochenstachel"
+  },
+  "50609": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_53",
+    "name_dede": "Amulett der Knochenschildwache"
+  },
+  "50610": {
+    "quality": 4,
+    "icon": "item_icecrownringb",
+    "name_dede": "Mark'gars kaltes Auge"
+  },
+  "50611": {
+    "quality": 4,
+    "icon": "inv_bracer_43",
+    "name_dede": "Armschienen der dunklen Abrechnung"
+  },
+  "50612": {
+    "quality": 4,
+    "icon": "inv_pants_plate_31",
+    "name_dede": "Beinschützer der verlorenen Hoffnung"
+  },
+  "50613": {
+    "quality": 4,
+    "icon": "inv_belt_64",
+    "name_dede": "Zerschmetternder Eisgespenstergürtel"
+  },
+  "50614": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_82",
+    "name_dede": "Fingerreif des endlosen Labyrinths"
+  },
+  "50615": {
+    "quality": 4,
+    "icon": "inv_gauntlets_83",
+    "name_dede": "Handschützer der Winterflucht"
+  },
+  "50616": {
+    "quality": 4,
+    "icon": "inv_shield_72",
+    "name_dede": "Bollwerk des schwelenden Stahls"
+  },
+  "50617": {
+    "quality": 4,
+    "icon": "inv_shoulder_117",
+    "name_dede": "Verrostete Knochenspitzenschulterstücke"
+  },
+  "50638": {
+    "quality": 4,
+    "icon": "inv_weapon_bow_55",
+    "name_dede": "Zods Repetierlangbogen"
+  },
+  "50639": {
+    "quality": 4,
+    "icon": "inv_boots_plate_13",
+    "name_dede": "Blutgetränkte Saronitstampfer"
+  },
+  "50640": {
+    "quality": 4,
+    "icon": "inv_helmet_151",
+    "name_dede": "Zerbrochener Widderschädelhelm"
+  },
+  "50641": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_103",
+    "name_dede": "Herzdurchbohrer"
+  },
+  "50642": {
+    "quality": 4,
+    "icon": "item_icecrownringd",
+    "name_dede": "Molochband"
+  },
+  "50643": {
+    "quality": 4,
+    "icon": "inv_shoulder_114",
+    "name_dede": "Schultern des Gnadentods"
+  },
+  "50644": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_ahnqiraj_05",
+    "name_dede": "Ring des Unerträglichen Flüsterns"
+  },
+  "50645": {
+    "quality": 4,
+    "icon": "inv_pants_mail_32",
+    "name_dede": "Gamaschen des Nordlichts"
+  },
+  "50646": {
+    "quality": 4,
+    "icon": "inv_shoulder_112",
+    "name_dede": "Blutgetränkte Schulterpolster des Kultisten"
+  },
+  "50647": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_48",
+    "name_dede": "Onyxnackenschutz der Ahn'kahar"
+  },
+  "50648": {
+    "quality": 4,
+    "icon": "inv_staff_109",
+    "name_dede": "Nibelung"
+  },
+  "50649": {
+    "quality": 4,
+    "icon": "inv_chest_leather_21",
+    "name_dede": "Todeswispers Gewandung"
+  },
+  "50650": {
+    "quality": 4,
+    "icon": "inv_gauntlets_85",
+    "name_dede": "Handschützer des gefallenen Lords"
+  },
+  "50651": {
+    "quality": 4,
+    "icon": "inv_bracer_44",
+    "name_dede": "Brüchige Armschienen der Lady"
+  },
+  "50652": {
+    "quality": 4,
+    "icon": "inv_boots_mail_10",
+    "name_dede": "Nekrophotische Schienbeinschützer"
+  },
+  "50653": {
+    "quality": 4,
+    "icon": "item_icecrowncloak",
+    "name_dede": "Schlächterumhang des Schattengewölbes"
+  },
+  "50654": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Kriegsaxt des Geißelerben"
+  },
+  "50655": {
+    "quality": 4,
+    "icon": "inv_bracer_40",
+    "name_dede": "Unterarmschienen des Geißeljägers"
+  },
+  "50656": {
+    "quality": 4,
+    "icon": "inv_chest_leather_22",
+    "name_dede": "Ikfirus' Wundersack"
+  },
+  "50657": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_83",
+    "name_dede": "Kreis des Skelettfürsten"
+  },
+  "50658": {
+    "quality": 4,
+    "icon": "item_icecrownnecklaced",
+    "name_dede": "Amulett der lautlosen Euloge"
+  },
+  "50659": {
+    "quality": 4,
+    "icon": "inv_bracer_43",
+    "name_dede": "Armschienen aus Eisbärenklauen"
+  },
+  "50660": {
+    "quality": 4,
+    "icon": "inv_shoulder_130",
+    "name_dede": "Schulterstücke des Kommandanten der Knochenwache"
+  },
+  "50661": {
+    "quality": 4,
+    "icon": "inv_helmet_156",
+    "name_dede": "Zeremonienkrone von Corp'rethar"
+  },
+  "50663": {
+    "quality": 4,
+    "icon": "inv_gauntlets_88",
+    "name_dede": "Fäustlinge des Kanonenbootkapitäns"
+  },
+  "50664": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_86",
+    "name_dede": "Ring des Schnellen Aufstiegs"
+  },
+  "50665": {
+    "quality": 4,
+    "icon": "inv_boots_leather_8",
+    "name_dede": "Stiefel des unnatürlichen Wachstums"
+  },
+  "50667": {
+    "quality": 4,
+    "icon": "inv_belt_70",
+    "name_dede": "Gürtelbund des gerechten Zorns"
+  },
+  "50668": {
+    "quality": 4,
+    "icon": "item_icecrowncape",
+    "name_dede": "Großumhang des bekehrten Champions"
+  },
+  "50670": {
+    "quality": 4,
+    "icon": "inv_bracer_41",
+    "name_dede": "Toskks maximierte Handgelenksschützer"
+  },
+  "50671": {
+    "quality": 4,
+    "icon": "inv_belt_83",
+    "name_dede": "Gürtel der Blutnova"
+  },
+  "50672": {
+    "quality": 4,
+    "icon": "inv_sword_154",
+    "name_dede": "Blutgiftklinge"
+  },
+  "50673": {
+    "quality": 4,
+    "icon": "inv_shoulder_113",
+    "name_dede": "Doppelklingenschulterstücke"
+  },
+  "50674": {
+    "quality": 4,
+    "icon": "inv_shoulder_130",
+    "name_dede": "Schulterplatten des tobenden Ungetüms"
+  },
+  "50675": {
+    "quality": 4,
+    "icon": "inv_gauntlets_79",
+    "name_dede": "Aldrianas Handschuhe der Geheimhaltung"
+  },
+  "50676": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_105",
+    "name_dede": "Rippenspreizer"
+  },
+  "50677": {
+    "quality": 4,
+    "icon": "item_icecrowncape",
+    "name_dede": "Gewundenes Laken"
+  },
+  "50678": {
+    "quality": 4,
+    "icon": "item_icecrownringc",
+    "name_dede": "Siegel der vielen Münder"
+  },
+  "50679": {
+    "quality": 4,
+    "icon": "inv_helmet_148",
+    "name_dede": "Helm des ältesten Mondes"
+  },
+  "50680": {
+    "quality": 4,
+    "icon": "inv_chest_plate22",
+    "name_dede": "Moderresistente Brustplatte"
+  },
+  "50681": {
+    "quality": 4,
+    "icon": "inv_chest_plate_26",
+    "name_dede": "Kriegsplatte des Seuchenerben"
+  },
+  "50682": {
+    "quality": 4,
+    "icon": "item_icecrownnecklaceb",
+    "name_dede": "Galleverkrustetes Medaillon"
+  },
+  "50684": {
+    "quality": 4,
+    "icon": "inv_wand_35",
+    "name_dede": "Leichendurchbohrender Stachel"
+  },
+  "50685": {
+    "quality": 4,
+    "icon": "inv_mace_118",
+    "name_dede": "Trauma"
+  },
+  "50686": {
+    "quality": 4,
+    "icon": "inv_bracer_47",
+    "name_dede": "Ärmel des Todeschirurgen"
+  },
+  "50687": {
+    "quality": 4,
+    "icon": "inv_bracer_60",
+    "name_dede": "Blutspritzers Armschienen"
+  },
+  "50688": {
+    "quality": 4,
+    "icon": "inv_belt_60",
+    "name_dede": "Kordel des Nerub'arhäschers"
+  },
+  "50689": {
+    "quality": 4,
+    "icon": "inv_chest_mail_11",
+    "name_dede": "Knochenpanzer der vergessenen Könige"
+  },
+  "50690": {
+    "quality": 4,
+    "icon": "inv_gauntlets_87",
+    "name_dede": "Fleischzerreißende Stulpen"
+  },
+  "50691": {
+    "quality": 4,
+    "icon": "inv_belt_63",
+    "name_dede": "Gürtel der gebrochenen Knochen"
+  },
+  "50692": {
+    "quality": 4,
+    "icon": "inv_weapon_hand_33",
+    "name_dede": "Schwarze Prellung"
+  },
+  "50693": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_84",
+    "name_dede": "Macht der Seuche"
+  },
+  "50694": {
+    "quality": 4,
+    "icon": "inv_kilt_cloth_02",
+    "name_dede": "Befleckte Hose des Seuchenfürsten"
+  },
+  "50695": {
+    "quality": 4,
+    "icon": "inv_staff_107",
+    "name_dede": "Fernes Land"
+  },
+  "50696": {
+    "quality": 4,
+    "icon": "inv_pants_leather_35",
+    "name_dede": "Leder aus vernähten Geißelteilen"
+  },
+  "50697": {
+    "quality": 4,
+    "icon": "inv_pants_leather_34",
+    "name_dede": "Gangranöse Gamaschen"
+  },
+  "50698": {
+    "quality": 4,
+    "icon": "inv_shoulder_133",
+    "name_dede": "Schreckliche Fleischschulterklappen"
+  },
+  "50699": {
+    "quality": 4,
+    "icon": "inv_boots_cloth_24",
+    "name_dede": "Stiefel des Seuchenwissenschaftlers"
+  },
+  "50700": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_49",
+    "name_dede": "Segen der Feiertage"
+  },
+  "50701": {
+    "quality": 4,
+    "icon": "inv_helmet_154",
+    "name_dede": "Gesichtsschutz des Vergessenen"
+  },
+  "50702": {
+    "quality": 4,
+    "icon": "inv_belt_68",
+    "name_dede": "Siechtum"
+  },
+  "50703": {
+    "quality": 4,
+    "icon": "inv_gauntlets_104",
+    "name_dede": "Unreine Chirurgenhandschuhe"
+  },
+  "50704": {
+    "quality": 4,
+    "icon": "inv_sword_152",
+    "name_dede": "Rigormortis"
+  },
+  "50705": {
+    "quality": 4,
+    "icon": "inv_belt_59",
+    "name_dede": "Blutiger Kittel des Professors"
+  },
+  "50706": {
+    "quality": 4,
+    "icon": "inv_alchemy_enchantedvial",
+    "name_dede": "Winzige Monstrosität im Glas"
+  },
+  "50707": {
+    "quality": 4,
+    "icon": "inv_belt_61",
+    "name_dede": "Astrylians Vernähter Gurt"
+  },
+  "50708": {
+    "quality": 4,
+    "icon": "inv_mace_114",
+    "name_dede": "Das letzte Wort"
+  },
+  "50709": {
+    "quality": 4,
+    "icon": "inv_axe_120",
+    "name_dede": "Bryntroll, der Knochenrächer"
+  },
+  "50724": {
+    "quality": 4,
+    "icon": "inv_jewelcrafting_crimsonspinel_02",
+    "name_dede": "Purpurroter Halsreif der Blutkönigin"
+  },
+  "50725": {
+    "quality": 4,
+    "icon": "inv_staff_106",
+    "name_dede": "Verlöschendes Licht"
+  },
+  "50726": {
+    "quality": 4,
+    "icon": "inv_jewelcrafting_gem_28",
+    "name_dede": "Schmuckstück des wahren Blutes"
+  },
+  "50727": {
+    "quality": 4,
+    "icon": "inv_weapon_staff_109",
+    "name_dede": "Blutfall"
+  },
+  "50728": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_50",
+    "name_dede": "Lana'thels Kette der Geißelung"
+  },
+  "50729": {
+    "quality": 4,
+    "icon": "inv_shield_75",
+    "name_dede": "Gletscherwand aus Eiskrone"
+  },
+  "50730": {
+    "quality": 4,
+    "icon": "inv_sword_153",
+    "name_dede": "Glorenzelg, die Hohe Klinge der Silbernen Hand"
+  },
+  "50731": {
+    "quality": 4,
+    "icon": "inv_staff_108",
+    "name_dede": "Archus, Hohestab des Antonidas"
+  },
+  "50732": {
+    "quality": 4,
+    "icon": "inv_sword_150",
+    "name_dede": "Blutschäumer, Kel'Thuzads Klinge der Pein"
+  },
+  "50733": {
+    "quality": 4,
+    "icon": "inv_weapon_crossbow_38",
+    "name_dede": "Fal'inrush, Verteidiger von Quel'Thalas"
+  },
+  "50734": {
+    "quality": 4,
+    "icon": "inv_mace_115",
+    "name_dede": "Königliches Szepter von Terenas II"
+  },
+  "50735": {
+    "quality": 4,
+    "icon": "inv_weapon_staff_109",
+    "name_dede": "Schwurbinder, Kraft des Waldläufergenerals"
+  },
+  "50736": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_104",
+    "name_dede": "Himmelsfall, Kris der tausend Lügen"
+  },
+  "50737": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Chaosruf, Klinge der Könige von Lordaeron"
+  },
+  "50738": {
+    "quality": 4,
+    "icon": "inv_mace_117",
+    "name_dede": "Mithrios, Bronzebarts Vermächtnis"
+  },
+  "51835": {
+    "quality": 4,
+    "icon": "inv_gauntlets_87",
+    "name_dede": "Venenquetscherstulpen"
+  },
+  "51836": {
+    "quality": 4,
+    "icon": "inv_belt_70",
+    "name_dede": "Enggeschnallter Gürtelbund"
+  },
+  "51837": {
+    "quality": 4,
+    "icon": "inv_helmet_152",
+    "name_dede": "Gugel der boshaften Ruhe"
+  },
+  "51838": {
+    "quality": 4,
+    "icon": "inv_wand_35",
+    "name_dede": "Lana'thels blutiger Nagel"
+  },
+  "51839": {
+    "quality": 4,
+    "icon": "inv_shoulder_111",
+    "name_dede": "Schulterpolster des sengenden Kusses"
+  },
+  "51840": {
+    "quality": 4,
+    "icon": "inv_chest_mail_15",
+    "name_dede": "Brustschutz der abgeschöpften Elemente"
+  },
+  "51841": {
+    "quality": 4,
+    "icon": "inv_pants_leather_34",
+    "name_dede": "Elfenbeinverzierte Gamaschen"
+  },
+  "51843": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_70",
+    "name_dede": "Siegel der Zwielichtkönigin"
+  },
+  "51844": {
+    "quality": 4,
+    "icon": "inv_gauntlets_87",
+    "name_dede": "Handschützer des Kehlenreißers"
+  },
+  "51845": {
+    "quality": 4,
+    "icon": "inv_weapon_rifle_39",
+    "name_dede": "Pflockwerfer"
+  },
+  "51846": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_102",
+    "name_dede": "Blutnipper"
+  },
+  "51859": {
+    "quality": 4,
+    "icon": "inv_shoulder_114",
+    "name_dede": "Schultern der ruinösen Senilität"
+  },
+  "51860": {
+    "quality": 4,
+    "icon": "inv_kilt_mail_01",
+    "name_dede": "Kilt aus gewelltem Fleisch"
+  },
+  "51861": {
+    "quality": 4,
+    "icon": "inv_chest_plate22",
+    "name_dede": "Brustplatte der septischen Nähte"
+  },
+  "51862": {
+    "quality": 4,
+    "icon": "inv_belt_64",
+    "name_dede": "Kauterisierte Kordel"
+  },
+  "51863": {
+    "quality": 4,
+    "icon": "inv_jewelry_talisman_16",
+    "name_dede": "Anhänger der geborstenen Venen"
+  },
+  "51864": {
+    "quality": 4,
+    "icon": "inv_shoulder_113",
+    "name_dede": "Schulterpolster des morbiden Rituals"
+  },
+  "51866": {
+    "quality": 4,
+    "icon": "inv_helmet_149",
+    "name_dede": "Weggeworfener Sack voll Eingeweide"
+  },
+  "51867": {
+    "quality": 4,
+    "icon": "item_icecrownnecklaceb",
+    "name_dede": "Infizierter Halsreif"
+  },
+  "51868": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_102",
+    "name_dede": "Fleischritzendes Skalpell"
+  },
+  "51869": {
+    "quality": 4,
+    "icon": "inv_sword_154",
+    "name_dede": "Der chirurgische Eingriff"
+  },
+  "51870": {
+    "quality": 4,
+    "icon": "inv_chest_leather_21",
+    "name_dede": "Brustschutz des fehlgeschlagenen Experiments"
+  },
+  "51871": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_49",
+    "name_dede": "Halsreif aus schmutzigen Diamanten"
+  },
+  "51872": {
+    "quality": 4,
+    "icon": "inv_bracer_44",
+    "name_dede": "Äthergetränkte Armschienen"
+  },
+  "51873": {
+    "quality": 4,
+    "icon": "inv_boots_mail_10",
+    "name_dede": "Schlurfende Schuhe"
+  },
+  "51874": {
+    "quality": 4,
+    "icon": "inv_gauntlets_92",
+    "name_dede": "Handschuhe der gebrochenen Finger"
+  },
+  "51875": {
+    "quality": 4,
+    "icon": "inv_mace_118",
+    "name_dede": "Maulsperre"
+  },
+  "51876": {
+    "quality": 4,
+    "icon": "inv_weapon_hand_34",
+    "name_dede": "Monstrositätenschlagring"
+  },
+  "51877": {
+    "quality": 4,
+    "icon": "inv_helmet_158",
+    "name_dede": "Taldrons kurzsichtiger Helm"
+  },
+  "51878": {
+    "quality": 4,
+    "icon": "item_icecrownringd",
+    "name_dede": "Modermienes reißender Ring"
+  },
+  "51879": {
+    "quality": 4,
+    "icon": "inv_belt_63",
+    "name_dede": "Bahrengurt des Fleischformers"
+  },
+  "51880": {
+    "quality": 4,
+    "icon": "inv_throwingknife_01",
+    "name_dede": "Gluths Apportiermesser"
+  },
+  "51881": {
+    "quality": 4,
+    "icon": "inv_staff_106",
+    "name_dede": "Schaft aus Gletschereis"
+  },
+  "51882": {
+    "quality": 4,
+    "icon": "inv_kilt_cloth_02",
+    "name_dede": "Kilt der unbehandelten Wunden"
+  },
+  "51883": {
+    "quality": 4,
+    "icon": "inv_shoulder_119",
+    "name_dede": "Blutbefleckter Schulterschutz des Chirurgen"
+  },
+  "51884": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_82",
+    "name_dede": "Siegelring der Fäulnis"
+  },
+  "51885": {
+    "quality": 4,
+    "icon": "inv_bracer_40",
+    "name_dede": "Handschutz des septischen Schocks"
+  },
+  "51887": {
+    "quality": 4,
+    "icon": "inv_staff_107",
+    "name_dede": "Abrakadaver"
+  },
+  "51888": {
+    "quality": 4,
+    "icon": "inv_misc_cape_naxxramas_01",
+    "name_dede": "Umhang der vielen Häute"
+  },
+  "51889": {
+    "quality": 4,
+    "icon": "inv_pants_leather_34",
+    "name_dede": "Seuchendurchtränkte Ledergamaschen"
+  },
+  "51890": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_78",
+    "name_dede": "Schatz' eitriges Halsband"
+  },
+  "51891": {
+    "quality": 4,
+    "icon": "inv_boots_mail_06",
+    "name_dede": "Taldrons lange vernachlässigte Stiefel"
+  },
+  "51892": {
+    "quality": 4,
+    "icon": "inv_gauntlets_87",
+    "name_dede": "Faulender Fingerschutz"
+  },
+  "51893": {
+    "quality": 4,
+    "icon": "inv_mace_114",
+    "name_dede": "Darmplatzer"
+  },
+  "51894": {
+    "quality": 4,
+    "icon": "item_icecrownnecklacea",
+    "name_dede": "Seelenspalteranhänger"
+  },
+  "51895": {
+    "quality": 4,
+    "icon": "inv_pants_plate_31",
+    "name_dede": "Todgeschmiedete Beinplatten"
+  },
+  "51896": {
+    "quality": 4,
+    "icon": "inv_helmet_156",
+    "name_dede": "Knisternde Gugel des Thaumaturgen"
+  },
+  "51898": {
+    "quality": 4,
+    "icon": "inv_staff_107",
+    "name_dede": "Stab des Mag'harihäuptlings"
+  },
+  "51899": {
+    "quality": 4,
+    "icon": "inv_boots_cloth_24",
+    "name_dede": "Sandalen der Eiskronenspitze"
+  },
+  "51900": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_81",
+    "name_dede": "Saurfangs kaltgeschmiedetes Band"
+  },
+  "51901": {
+    "quality": 4,
+    "icon": "inv_bracer_43",
+    "name_dede": "Gargoylespeichelarmschienen"
+  },
+  "51902": {
+    "quality": 4,
+    "icon": "inv_chest_plate_26",
+    "name_dede": "Klingengekerbter Knochenpanzer"
+  },
+  "51903": {
+    "quality": 4,
+    "icon": "inv_chest_mail_07",
+    "name_dede": "Halsberge der tausend Schnitte"
+  },
+  "51904": {
+    "quality": 4,
+    "icon": "inv_gauntlets_79",
+    "name_dede": "Geißelwürger"
+  },
+  "51905": {
+    "quality": 4,
+    "icon": "inv_axe_115",
+    "name_dede": "Ramaladnis Schlächterklinge"
+  },
+  "51906": {
+    "quality": 4,
+    "icon": "inv_helmet_169",
+    "name_dede": "Eisverstärkter Vrykulhelm"
+  },
+  "51907": {
+    "quality": 4,
+    "icon": "inv_bracer_43",
+    "name_dede": "Armschienen der blassen Illumination"
+  },
+  "51908": {
+    "quality": 4,
+    "icon": "inv_belt_59",
+    "name_dede": "Kordel des dunklen Leidens"
+  },
+  "51909": {
+    "quality": 4,
+    "icon": "inv_shield_73",
+    "name_dede": "Unendlicher Winter"
+  },
+  "51910": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_103",
+    "name_dede": "Mitternachtssonne"
+  },
+  "51911": {
+    "quality": 4,
+    "icon": "inv_shoulder_113",
+    "name_dede": "Schulterstücke der verlorenen Hoffnung"
+  },
+  "51912": {
+    "quality": 4,
+    "icon": "inv_misc_cape_26",
+    "name_dede": "Saronitgargoyleumhang"
+  },
+  "51913": {
+    "quality": 4,
+    "icon": "inv_jewelry_ring_85",
+    "name_dede": "Blutiger Ring der Monstrosität"
+  },
+  "51914": {
+    "quality": 4,
+    "icon": "inv_bracer_40",
+    "name_dede": "Armschienen des Eiskronenbollwerks"
+  },
+  "51915": {
+    "quality": 4,
+    "icon": "inv_boots_plate_13",
+    "name_dede": "Beschlagene Stiefel des Knochendrachen"
+  },
+  "51916": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Spaltbeil des Frostriesen"
+  },
+  "51917": {
+    "quality": 4,
+    "icon": "inv_chest_plate_26",
+    "name_dede": "Kürass des Ghulkommandanten"
+  },
+  "51919": {
+    "quality": 4,
+    "icon": "inv_belt_83",
+    "name_dede": "Gürtel des Jüngers der Todessprecher"
+  },
+  "51920": {
+    "quality": 4,
+    "icon": "inv_boots_leather_8",
+    "name_dede": "Stiefel der gefrorenen Saat"
+  },
+  "51921": {
+    "quality": 4,
+    "icon": "inv_gauntlets_88",
+    "name_dede": "Handschuhe der Schwester"
+  },
+  "51922": {
+    "quality": 4,
+    "icon": "inv_misc_bone_elfskull_01",
+    "name_dede": "Baton des Geißelfürsten"
+  },
+  "51923": {
+    "quality": 4,
+    "icon": "inv_chest_leather_22",
+    "name_dede": "Brustschutz des eisigen Galgenstricks"
+  },
+  "51924": {
+    "quality": 4,
+    "icon": "inv_helmet_151",
+    "name_dede": "Helm des Zeloten der Todessprecher"
+  },
+  "51925": {
+    "quality": 4,
+    "icon": "inv_belt_61",
+    "name_dede": "Geflochtener Gürtel des Seelendiebs"
+  },
+  "51926": {
+    "quality": 4,
+    "icon": "inv_gauntlets_84",
+    "name_dede": "Handschutz von Frost und Graupel"
+  },
+  "51927": {
+    "quality": 4,
+    "icon": "inv_weapon_bow_55",
+    "name_dede": "Knochenbogen der Njorndar"
+  },
+  "51928": {
+    "quality": 4,
+    "icon": "inv_pants_plate_33",
+    "name_dede": "Verderbte versilberte Gamaschen"
+  },
+  "51929": {
+    "quality": 4,
+    "icon": "inv_bracer_60",
+    "name_dede": "Eisgespensterarmschienen"
+  },
+  "51930": {
+    "quality": 4,
+    "icon": "inv_belt_68",
+    "name_dede": "Kordel des herablassenden Fachmanns"
+  },
+  "51931": {
+    "quality": 4,
+    "icon": "inv_boots_plate_14",
+    "name_dede": "Uralte Skelettstiefel"
+  },
+  "51932": {
+    "quality": 4,
+    "icon": "inv_sword_152",
+    "name_dede": "Frostnadel"
+  },
+  "51934": {
+    "quality": 4,
+    "icon": "inv_jewelry_necklace_52",
+    "name_dede": "Mark'gars kratzender Halsreif"
+  },
+  "51935": {
+    "quality": 4,
+    "icon": "inv_belt_60",
+    "name_dede": "Gekettelte Geißelwirbel"
+  },
+  "51936": {
+    "quality": 4,
+    "icon": "inv_sword_153",
+    "name_dede": "Claymore des Zitadellenvollstreckers"
+  },
+  "51937": {
+    "quality": 4,
+    "icon": "inv_mace_117",
+    "name_dede": "Knochenbrecherszepter"
+  },
+  "51938": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Spalter des Knochenwächters"
+  },
+  "51939": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_101",
+    "name_dede": "Tel'thas, Dolch des Blutkönigs"
+  },
+  "51940": {
+    "quality": 4,
+    "icon": "inv_weapon_crossbow_38",
+    "name_dede": "Windläufers Herzsucher"
+  },
+  "51941": {
+    "quality": 4,
+    "icon": "inv_weapon_hand_34",
+    "name_dede": "Pugius, Faust des Trotzes"
+  },
+  "51942": {
+    "quality": 4,
+    "icon": "inv_weapon_shortblade_105",
+    "name_dede": "Sturmzorn, schwarze Klinge des Verräters"
+  },
+  "51943": {
+    "quality": 4,
+    "icon": "inv_staff_109",
+    "name_dede": "Halion, Stab der vergessenen Liebe"
+  },
+  "51944": {
+    "quality": 4,
+    "icon": "inv_mace_115",
+    "name_dede": "Valius, Hammer des Lichtbringers"
+  },
+  "51945": {
+    "quality": 4,
+    "icon": "inv_staff_108",
+    "name_dede": "Besudelter Zweig von Nordrassil"
+  },
+  "51946": {
+    "quality": 4,
+    "icon": "inv_mace_116",
+    "name_dede": "Kriegsstreitkolben von Menethil"
+  },
+  "51947": {
+    "quality": 4,
+    "icon": "inv_axe_113",
+    "name_dede": "Troggbann, Axt des frostgeborenen Königs"
+  },
+  "52025":{
+    "quality": 4,
+    "icon": "ability_paladin_shieldofthetemplar",
+    "name_dede": "Weiheabzeichen des Bezwingers"
+  },
+  "52026":{
+    "quality": 4,
+    "icon": "ability_paladin_shieldofthetemplar",
+    "name_dede": "Weiheabzeichen des Beschützers"
+  },
+  "52027":{
+    "quality": 4,
+    "icon": "ability_paladin_shieldofthetemplar",
+    "name_dede": "Weiheabzeichen des Eroberers"
+  }
+}
