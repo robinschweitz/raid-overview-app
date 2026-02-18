@@ -20,27 +20,6 @@ import icc_items from "./data/items.json";
 type IccItem = { name_dede: string; quality: number; icon: string };
 const items = icc_items as Record<string, IccItem>;
 
-type ItemInfo = {
-  id: number;
-  icon: string;
-};
-
-// const items = (icc_items as any).default ?? icc_items;
-
-const norm = (s: string) =>
-  s.toLowerCase().replaceAll("’", "'").trim();
-
-const nameToItem: Record<string, ItemInfo> = {};
-
-for (const [id, item] of Object.entries(items)) {
-  if (!item?.name_dede) continue;
-
-  nameToItem[norm(item.name_dede)] = {
-    id: Number(id),
-    icon: item.icon,
-  };
-}
-
 type LootRow = {
   raidId?: string;
   date?: string;
@@ -48,6 +27,7 @@ type LootRow = {
   item: string;
   character: string;
   priority: string;
+  itemId: string;
 };
 
 function uniqSorted(values: string[]) {
@@ -131,7 +111,11 @@ export function RaidLootTable({
         accessorKey: "priority",
         header: "Zuweisung",
         enableColumnFilter: true,
-        }
+        },
+        {
+        accessorKey: "itemId",
+        header: "ItemId",
+        },
     );
 
     return base;
@@ -272,18 +256,8 @@ export function RaidLootTable({
               <td colSpan={row.getVisibleCells().length}>
                 <div style={{ padding: 12, background: "#1e1e1e" }}>
                     {(() => {
-                              const info = nameToItem[norm(row.original.item)];
-
-                              if (!info) {
-                                return (
-                                  <>
-                                    <div><strong>Item:</strong> {row.original.item}</div>
-                                    <div><strong>Item ID:</strong> <em>nicht gefunden</em></div>
-                                  </>
-                                );
-                              }
-
-                              const wowheadUrl = `https://www.wowhead.com/wotlk/de/item=${info.id}`;
+                              const info = items[row.original.itemId];
+                              const wowheadUrl = `https://www.wowhead.com/wotlk/de/item=${row.original.itemId}`;
                               const iconUrl = `https://wow.zamimg.com/images/wow/icons/large/${info.icon}.jpg`;
 
                               return (
@@ -305,7 +279,7 @@ export function RaidLootTable({
                                       </div>
 
                                       <div>
-                                        <strong>Item ID:</strong> {info.id}
+                                        <strong>Item ID:</strong> {row.original.itemId}
                                       </div>
                                     </div>
                                   </div>

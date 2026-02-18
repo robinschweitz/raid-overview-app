@@ -241,6 +241,7 @@ export class SheetsService {
         character: row[2] || '',
         item: row[3] || '',
         priority: row[4] || '',
+        itemId: row[5] || '',
       }))
       .filter((loot: any) => loot.item && loot.item.trim() !== '')
       .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -258,7 +259,7 @@ export class SheetsService {
         item: row[1] || '',
         priority: row[3] || '',
         date: 'Current Raid',
-        notes: row[4] || '',
+        itemId: row[4] || '',
       }))
       .filter((loot: any) => loot.item && loot.item.trim() !== '');
   }
@@ -366,7 +367,7 @@ export class SheetsService {
   }
 
   async getLootArchive(opts?: GetOpts): Promise<any[]> {
-    const raw = await this.batchGet(['Loot Archive!A1:E1000'], opts);
+    const raw = await this.batchGet(['Loot Archive!A1:F1000'], opts);
     const values = raw.valueRanges?.[0]?.values ?? [];
     return this.parseLootArchiveFromValues(values);
   }
