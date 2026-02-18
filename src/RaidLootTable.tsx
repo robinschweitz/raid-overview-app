@@ -246,8 +246,6 @@ export function RaidLootTable({
               <td colSpan={row.getVisibleCells().length}>
                 <div style={{ padding: 12, background: "#1e1e1e" }}>
                   <strong>Item:</strong> {row.original.item}
-                  <br />
-                  <strong>Boss:</strong> {row.original.boss}
                 </div>
               </td>
             </tr>
