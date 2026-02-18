@@ -3,6 +3,7 @@ import { sheetsService } from './sheetsService';
 import type { PointsData, GroupOverview } from './types';
 import { PointsTable } from './PointsTable';
 import { RaidLootTable } from './RaidLootTable';
+import { RaidCalendar } from "./RaidCalendar";
 
 import './Dashboard.css';
 
@@ -243,8 +244,6 @@ const Dashboard: React.FC = () => {
           </div>
         )}
 
-
-
         {activeTab === 'points' && (
           <div className="tab-content">
             <h2>Punkte Liste</h2>
@@ -337,37 +336,46 @@ const Dashboard: React.FC = () => {
     <h2>Raid Archive</h2>
     <div className="raid-archive">
       {!selectedRaid ? (
-        // Raid List View
         <div className="raid-list">
-          <h3>Verfügbare Raids</h3>
-          {raidArchive.length > 0 ? (
-            <div className="raid-summary-grid">
-              {raidArchive.map((raid: any, index: number) => (
-                <div
-                  key={index}
-                  className="raid-summary-card"
-                  onClick={() => setSelectedRaid(raid)}
-                >
-                  <div className="raid-summary-header">
-                    <h4>{raid.id}</h4>
-                    <span className="raid-date">{raid.date}</span>
+          <div className="raid-calendar-container" style={{ height: 700, borderRadius: 12, padding: 12 }}>
+          <RaidCalendar
+            raids={raidArchive}
+            lootArchive={lootArchive}
+            onSelectRaid={(raid) => setSelectedRaid(raid)}
+            renderRaidList={() => (
+              <div className="raid-summary-grid">
+                {raidArchive.map((raid: any, index: number) => (
+                  <div
+                    key={index}
+                    className="raid-summary-card"
+                    onClick={() => setSelectedRaid(raid)}
+                  >
+                    <div className="raid-summary-header">
+                      <h4>{raid.id}</h4>
+                      <span className="raid-date">{raid.date}</span>
+                    </div>
+
+                    <div className="raid-summary-stats">
+                      <span>{raid.members.length} members</span>
+                      <span>
+                        {
+                          lootArchive.filter(
+                            (loot: any) => loot.raidId === raid.id
+                          ).length
+                        }{" "}
+                        loot items
+                      </span>
+                    </div>
+
+                    <div className="raid-click-hint">
+                      Click to view details
+                    </div>
                   </div>
-                  <div className="raid-summary-stats">
-                    <span className="raid-members-count">{raid.members.length} members</span>
-                    <span className="raid-loot-count">
-                      {lootArchive.filter((loot: any) => loot.raidId === raid.id).length} loot items
-                    </span>
-                  </div>
-                  <div className="raid-click-hint">Click to view details</div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="empty-archive">
-              <p>No raid sessions found in archive.</p>
-              {/* <p>Make sure your "Raid Archive" sheet contains historical raid data.</p> */}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
+          />
+          </div>
         </div>
       ) : (
         // Raid Detail View
