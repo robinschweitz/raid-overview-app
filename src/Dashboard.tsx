@@ -4,10 +4,10 @@ import type { PointsData, GroupOverview } from './types';
 import { PointsTable } from './PointsTable';
 import { RaidLootTable } from './RaidLootTable';
 import { RaidCalendar } from "./RaidCalendar";
-
+import { RulesPage } from './RulesPage';
 import './Dashboard.css';
 
-type TabType = 'overview' | 'points' | 'stats' | 'current-loot' | 'raid-archive';
+type TabType = 'overview' | 'points' | 'stats' | 'current-loot' | 'raid-archive' | 'rules';
 
 const Dashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -170,6 +170,12 @@ const Dashboard: React.FC = () => {
 
       <nav className="dashboard-tabs">
         <button
+          className={activeTab === 'rules' ? 'active' : ''}
+          onClick={() => setActiveTab('rules')}
+        >
+          Infos
+        </button>
+        <button
           className={activeTab === 'overview' ? 'active' : ''}
           onClick={() => setActiveTab('overview')}
         >
@@ -241,6 +247,13 @@ const Dashboard: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {activeTab === 'rules' && (
+          <div className="tab-content">
+            {/* <h2>Regeln & Infos</h2> */}
+            <RulesPage />
           </div>
         )}
 

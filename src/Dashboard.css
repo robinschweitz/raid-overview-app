@@ -938,3 +938,192 @@
   background: linear-gradient(135deg, #0f3460 0%, #1b5aa7 50%, #0f3460 100%);
   color: #f2f2f2;
 }
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  margin: 1.2em 0 0.4em;
+}
+
+.markdown-body p {
+  margin: 0.6em 0;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin: 0.6em 0 0.6em 1.2em;
+}
+
+.markdown-body code {
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.06);
+}
+
+.markdown-body pre code {
+  display: block;
+  padding: 12px;
+  overflow: auto;
+}
+
+.markdown-body details {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.markdown-body summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.markdown-body h1 {
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+  padding-bottom: 8px;
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 24px 0;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #888;
+  padding-left: 12px;
+  opacity: 0.9;
+}
+
+.rules-wrapper {
+  display: flex;
+  justify-content: center; /* center the container */
+}
+
+.markdown-body {
+  max-width: 850px;
+  width: 100%;
+  text-align: left;
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+.rules-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.rules-sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.rules-sidebar h3 {
+  margin-bottom: 12px;
+}
+
+.rules-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rules-sidebar li {
+  margin-bottom: 10px;
+}
+
+.rules-sidebar a {
+  text-decoration: none;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.rules-sidebar a:hover {
+  opacity: 1;
+}
+
+/* Content */
+.rules-content {
+  max-width: 850px;
+  line-height: 1.65;
+  text-align: left;
+}
+
+/* Headings */
+.rules-content h2 {
+  margin-top: 60px;
+  scroll-margin-top: 120px;
+}
+
+.rules-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.rules-sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.rules-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rules-sidebar li {
+  margin-bottom: 10px;
+}
+
+.rules-sidebar a {
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.rules-sidebar a:hover {
+  opacity: 1;
+}
+
+/* Cards column */
+.rules-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Each section card */
+.rules-card {
+  border-radius: 14px;
+  padding: 18px 18px;
+  /* background: rgba(255, 255, 255, 0.04); */
+  /* border: 1px solid rgba(255, 255, 255, 0.10); */
+  /* box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18); */
+  scroll-margin-top: 120px;
+  text-align: left;
+}
+
+.rules-card-title {
+  margin: 0 0 10px 0;
+}
+
+/* Markdown inside card */
+.markdown-body {
+  line-height: 1.65;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.markdown-body p {
+  margin: 0.6em 0;
+}
