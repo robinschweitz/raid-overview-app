@@ -1,104 +1,96 @@
-## Grundsätzliches zum Raid
+## Generell
 
-WoW ist ein Spiel – und Spiele sollen Spaß machen.  
-Unser Raid ist für uns ein **Fun-Raid**.
+<details open>
+  <summary><strong>🎮 Unsere Haltung</strong> <span class="muted">– Fun-Raid, Fokus bei Bossen</span></summary>
 
-Wir wollen Bosse legen – aber nicht auf Krampf Rekorde brechen.  
-Unser Ziel ist, dass wir am Ende sagen können:
+  WoW ist ein Spiel. Spiele sollen Spaß machen.
 
-> „War ein guter Abend.“
+  Das hier ist ein <strong>Fun-Raid</strong>.  
+  Wir wollen Bosse legen – aber nicht auf Krampf.
 
-Abseits der Bosse dürft ihr gerne reden und Spaß haben.  
-Bei Bossen gilt jedoch:
+  <blockquote>
+    <strong>Unser Ziel:</strong><br/>
+    Ein guter Abend für alle.
+  </blockquote>
 
-> **Fokus.**  
-> Es sprechen nur die Leute, die gerade ansagen.
+  Zwischen den Bossen darf geredet und gelacht werden.  
+  Bei Bossen gilt: <strong>Fokus & klare Ansagen.</strong>
 
----
+</details>
 
-<!-- ## Rolle des Raidleads
+<details>
+  <summary><strong>🎤 Raidleitung</strong> <span class="muted">– wenig Gelaber, klare Calls</span></summary>
 
-Ich bin eher ruhig unterwegs und gehe davon aus, dass hier jeder:
+  Ich halte es ruhig und strukturiert:
 
-- seine Klasse spielen kann  
-- die grundlegenden Mechaniken kennt  
+  - Jeder kennt grundsätzlich seine Klasse.
+  - Ich sage nur wichtige Dinge an.
+  - Kämpfe laufen entspannt, ohne unnötiges Chaos.
 
-Ich sage nur wichtige Dinge an und lasse die Kämpfe sonst entspannt laufen.
+  <div class="callout warn">
+    Wenn ich spreche: bitte kurz ausreden lassen.
+  </div>
 
-Wenn ich etwas ansage, lasst mich bitte kurz ausreden.
+</details>
 
----
+<details>
+  <summary><strong>❓ Unsicher? Sag es.</strong> <span class="muted">– Fragen vor Pull = weniger Wipes</span></summary>
 
-### ❓ Unsicher bei einem Boss?
+  Neu beim Boss? Neue Klasse? Mechanik vergessen?
 
-Gar kein Problem.
+  <strong>Völlig okay.</strong>
 
-Wenn ihr einen Boss nicht kennt oder neu auf eurer Klasse seid:
+  <div class="callout">
+    Lieber einmal nachfragen als dreimal wipen.
+  </div>
 
-- Sagt vorher Bescheid  
-- Stellt Fragen  
+</details>
 
-> Lieber einmal nachfragen als dreimal wipen.
+<details>
+  <summary><strong>💬 Umgang</strong> <span class="muted">– Respekt ist Standard</span></summary>
 
-Dafür ist der Raid da.
+  - Kein Flamen  
+  - Kein Runtermachen  
+  - Fehler gehören dazu  
 
---- -->
+  <blockquote>
+    Wir wollen, dass alle gut gelaunt offline gehen.
+  </blockquote>
 
-## Umgang & Moral
+</details>
 
-Wir wollen einen Raid mit einer guten Atmosphäre und guter Laune.
-Aus diesem Grund ist uns das folgende sehr wichtig: 
+## 🎲 Loot-System – Enhanced Points
 
-- Kein Flamen  
-- Kein Runtermachen 
+<details open>
+  <summary><strong>📈 Punkte</strong> <span class="muted">– +10 wenn kein Main, max 50 Einsatz</span></summary>
 
-Fehler passieren und sind Menschlich.
-Niemand wird hier angegangen, weil etwas schiefgeht.
+  - Kein Main-Item im Raid → <strong>+10 Punkte</strong>
+  - Maximal <strong>50 Punkte</strong> pro Item einsetzbar
+  - Punkte können nicht unter 0 fallen
 
-Unser Ziel:  
-> Alle gehen gut gelaunt ins Bett.
+</details>
 
----
+<details>
+  <summary><strong>🎲 Rollen</strong> <span class="muted">– Command & Beispiel</span></summary>
 
-## Loot-System – Enhanced Points
+  **Roll-Command:**
 
-Wir spielen mit **Enhanced Points**.
+  <pre><code>/rnd Punkte+1 bis 100+Punkte</code></pre>
 
-### Punkte sammeln
+  Beispiel:  
+  Wenn du 20 Punkte hast → <code>/rnd 21-120</code>
 
-- Wenn ihr in einem Raid **kein Main-Item** bekommt → **+10 Punkte**
-- Punkte könnt ihr in späteren Raids einsetzen
-- Maximal **50 Punkte pro Item** einsetzbar
-- Punkte werden um den eingesetzten Wert reduziert (nie unter 0)
+</details>
 
-### Rollen
+<details>
+  <summary><strong>📦 Allgemeine Loot-Regeln</strong> <span class="muted">– Main > Second, BoE, Marken</span></summary>
 
-```
+  - <strong>Main &gt; Second</strong>
+  - Second: <code>/rnd 99</code>
+  - Second zählt nicht fürs Punktesystem
+  - BoE:
+    - Erst für Anziehen
+    - Dann frei verrollen
+  - Marken: max. <strong>8 pro Charakter</strong>
 
-/rnd Punkte+1 bis 100+Punkte
-
-```
-
-Beispiel:
-Wenn ihr 20 Punkte habt → `/rnd 21-120`
-
----
-
-Das System soll:
-
-- regelmäßige Spieler belohnen  
-- neue Spieler nicht ausschließen  
-- jedem jederzeit eine faire Chance geben  
-
----
-
-## Generelle Loot-Regeln
-
-- **Main > Second**
-- Second-Spec: `/rnd 99`
-- Second-Items zählen nicht fürs Punktesystem
-- **BoE-Items**
-  - Erst für „Anziehen“ verrollen
-  - Falls niemand braucht → frei verrollen
-- Es wird eine **Strichliste** geführt
-- Marken werden separat getrackt (maximal **8 pro Charakter**)
+</details>

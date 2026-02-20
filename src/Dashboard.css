@@ -1063,7 +1063,7 @@
 
 .rules-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 1fr;
   gap: 32px;
   max-width: 1200px;
   margin: 0 auto;
@@ -1126,4 +1126,85 @@
 
 .markdown-body p {
   margin: 0.6em 0;
+}
+
+/* ---------------- */
+
+/* --- Rules / Markdown UI --- */
+.markdown-body,
+.rules-content {
+  text-align: left;
+}
+
+.markdown-body details {
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.markdown-body summary {
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.markdown-body summary::-webkit-details-marker {
+  display: none;
+}
+
+.markdown-body summary strong {
+  font-size: 16px;
+}
+
+.markdown-body .muted {
+  opacity: 0.7;
+  font-size: 13px;
+  /* white-space: nowrap; */
+}
+
+.markdown-body details > *:not(summary) {
+  margin-top: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-left: 4px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+.markdown-body code {
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.markdown-body pre {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  overflow: auto;
+}
+
+/* Callouts */
+.markdown-body .callout {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.markdown-body .callout.warn {
+  background: rgba(255, 180, 0, 0.10);
+  border-color: rgba(255, 180, 0, 0.25);
 }

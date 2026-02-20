@@ -44,7 +44,7 @@ export function RulesPage() {
 
   return (
     <div className="rules-layout">
-      {/* Sidebar */}
+      {/* Sidebar
       <aside className="rules-sidebar">
         <h3>Inhalt</h3>
         <ul>
@@ -55,6 +55,7 @@ export function RulesPage() {
           ))}
         </ul>
       </aside>
+      */}
 
       {/* Cards */}
       <div className="rules-cards">
