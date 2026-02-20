@@ -1,35 +1,20 @@
+
 ## Generell
 
 <details open>
   <summary><strong>Unsere Haltung</strong></summary>
 
   WoW ist ein Spiel. Spiele sollen Spaß machen.
+  Wir wollen natürlich die Bosse in einer sinnvollen Zeit besiegen, aber nicht auf Krampf die Leute durch die Eiskronenzitadelle hetzen. 
 
-  Das hier ist ein <strong>Fun-Raid</strong>.  
-  Wir wollen Bosse legen – aber nicht auf Krampf.
+  Wir gehen das ganz entspannt an und sehen das hier als <strong>Fun-Raid</strong>
 
   <blockquote>
-    <strong>Unser Ziel:</strong><br/>
-    Ein guter Abend für alle.
+    Unser Ziel ist, dass wir am Ende des Abends sagen können: <strong>War ein lustiger und spaßiger Abend</strong>.
   </blockquote>
 
-  Zwischen den Bossen darf geredet und gelacht werden.  
+  Abseits der Bosse ist Quatsch machen, Lachen und Spaß haben gewünscht.
   Bei Bossen gilt: <strong>Fokus & klare Ansagen.</strong>
-
-</details>
-
-<details>
-  <summary><strong>Raidleitung</strong></summary>
-
-  Ich halte es ruhig und strukturiert:
-
-  - Jeder kennt grundsätzlich seine Klasse.
-  - Ich sage nur wichtige Dinge an.
-  - Kämpfe laufen entspannt, ohne unnötiges Chaos.
-
-  <div class="callout warn">
-    Wenn ich spreche: bitte kurz ausreden lassen.
-  </div>
 
 </details>
 
@@ -41,7 +26,7 @@
   <strong>Völlig okay.</strong>
 
   <div class="callout">
-    Lieber einmal nachfragen als dreimal wipen.
+    Fragt immer gerne im Raid nach. Wir haben viele Spieler die sehr gerne aushelfen.
   </div>
 
 </details>
@@ -49,24 +34,38 @@
 <details>
   <summary><strong>Umgang</strong> <span class="muted">Respekt ist das Minimum</span></summary>
 
-  - Kein Flamen  
-  - Kein Runtermachen  
-  - Fehler gehören dazu  
+Ein wichtiger Punkt damit unsere Raids entspannt, lustig und für jeden spaßig sind ist die Raid Moral und Atmosphäre.
+Hier ist uns vor allem wichtig, dass ihr respektvoll zueinander seid. 
 
-  <blockquote>
+<strong>Insbesondere wollen wir kein flamen und runtermachen von anderen Spielern</strong>.
+
+Fehler passieren – das ist normal.
+Niemand wird hier angegangen, weil etwas schiefgeht oder jemand nicht perfekt spielt.
+
+<blockquote>
     Wir wollen, dass alle gut gelaunt offline gehen.
-  </blockquote>
+ </blockquote>
+
+<details>
+<summary><strong>Seit Verständnisvoll</strong></summary>
+Versucht euch in euer ich von vor ~10 Jahren zu versetzen. Damals wart ihr vielleicht noch nicht die  totalen WoW Profi, die ihr jetzt seit. Damals wart ihr vielleicht auch noch etwas überfordert oder habt nicht immer perfekt gespielt. Mit dieser Denkweise solltet ihr Situationen angehen bei denen jemand einen Fehler macht oder nicht perfekt spielt.
+</details>
 
 </details>
 
-## Loot-System – Enhanced Points
+### Loot-System – Enhanced Points
 
 <details open>
   <summary><strong>Punkte</strong></summary>
 
-  - Kein Main-Item im Raid → <strong>+10 Punkte</strong>
-  - Maximal <strong>50 Punkte</strong> pro Item einsetzbar
-  - Punkte können nicht unter 0 fallen
+Wenn ihr in einem Raid <strong>kein Main-Item</strong> bekommt, erhaltet ihr am Ende <strong>10 Punkte</strong>.
+Diese Punkte könnt ihr in späteren Raids einsetzen.
+
+Es können Maximal <strong>50 Punkte pro Item</strong> eingesetzt werden. Punkte werden dann um den eingesetzten Wert reduziert.
+
+Das System soll regelmäßige Spieler belohnen, ohne neue Spieler auszuschließen – jeder hat immer eine faire Chance.
+
+Fragen zum System könnt ihr jederzeit stellen.
 
 </details>
 
@@ -83,14 +82,11 @@
 </details>
 
 <details>
-  <summary><strong>Allgemeine Loot-Regeln</strong> <span class="muted">Main > Second, BoE, Marken</span></summary>
+  <summary><strong>Allgemeine Loot-Regeln</strong></summary>
 
   - <strong>Main &gt; Second</strong>
   - Second: <code>/rnd 99</code>
-  - Second zählt nicht fürs Punktesystem
-  - BoE:
-    - Erst für Anziehen
-    - Dann frei verrollen
+  - Items die auf second herausgegeben werden zählen nicht fürs Punktesystem.
+  - <strong>BoE-Items</strong> werden zuerst normal für die verrollt die das Item auch **anlegen** wollen. Wenn es keiner braucht, wird es nochmal für alle verrollt.
   - Marken: max. <strong>8 pro Charakter</strong>
-
 </details>
