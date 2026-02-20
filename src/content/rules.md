@@ -47,7 +47,7 @@
 </details>
 
 <details>
-  <summary><strong>Umgang</strong> <span class="muted">– Respekt ist Standard</span></summary>
+  <summary><strong>Umgang</strong> <span class="muted">Respekt ist das Minimum</span></summary>
 
   - Kein Flamen  
   - Kein Runtermachen  
@@ -71,7 +71,7 @@
 </details>
 
 <details>
-  <summary><strong>Rollen</strong> <span class="muted">– Command & Beispiel</span></summary>
+  <summary><strong>Rollen</strong> <span class="muted">Command & Beispiel</span></summary>
 
   **Roll-Command:**
 
@@ -83,7 +83,7 @@
 </details>
 
 <details>
-  <summary><strong>Allgemeine Loot-Regeln</strong> <span class="muted">– Main > Second, BoE, Marken</span></summary>
+  <summary><strong>Allgemeine Loot-Regeln</strong> <span class="muted">Main > Second, BoE, Marken</span></summary>
 
   - <strong>Main &gt; Second</strong>
   - Second: <code>/rnd 99</code>
