@@ -53,7 +53,7 @@ Versucht euch in euer ich von vor ~10 Jahren zu versetzen. Damals wart ihr viell
 
 </details>
 
-### Loot-System – Enhanced Points
+## Loot-System – Enhanced Points
 
 <details open>
   <summary><strong>Punkte</strong></summary>
