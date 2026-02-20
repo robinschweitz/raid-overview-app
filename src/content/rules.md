@@ -1,7 +1,7 @@
 ## Generell
 
 <details open>
-  <summary><strong>🎮 Unsere Haltung</strong> <span class="muted">– Fun-Raid, Fokus bei Bossen</span></summary>
+  <summary><strong>Unsere Haltung</strong></summary>
 
   WoW ist ein Spiel. Spiele sollen Spaß machen.
 
@@ -19,7 +19,7 @@
 </details>
 
 <details>
-  <summary><strong>🎤 Raidleitung</strong> <span class="muted">– wenig Gelaber, klare Calls</span></summary>
+  <summary><strong>Raidleitung</strong></summary>
 
   Ich halte es ruhig und strukturiert:
 
@@ -34,7 +34,7 @@
 </details>
 
 <details>
-  <summary><strong>❓ Unsicher? Sag es.</strong> <span class="muted">– Fragen vor Pull = weniger Wipes</span></summary>
+  <summary><strong>Unsicher? Sag es</strong></summary>
 
   Neu beim Boss? Neue Klasse? Mechanik vergessen?
 
@@ -47,7 +47,7 @@
 </details>
 
 <details>
-  <summary><strong>💬 Umgang</strong> <span class="muted">– Respekt ist Standard</span></summary>
+  <summary><strong>Umgang</strong> <span class="muted">– Respekt ist Standard</span></summary>
 
   - Kein Flamen  
   - Kein Runtermachen  
@@ -59,10 +59,10 @@
 
 </details>
 
-## 🎲 Loot-System – Enhanced Points
+## Loot-System – Enhanced Points
 
 <details open>
-  <summary><strong>📈 Punkte</strong> <span class="muted">– +10 wenn kein Main, max 50 Einsatz</span></summary>
+  <summary><strong>Punkte</strong></summary>
 
   - Kein Main-Item im Raid → <strong>+10 Punkte</strong>
   - Maximal <strong>50 Punkte</strong> pro Item einsetzbar
@@ -71,7 +71,7 @@
 </details>
 
 <details>
-  <summary><strong>🎲 Rollen</strong> <span class="muted">– Command & Beispiel</span></summary>
+  <summary><strong>Rollen</strong> <span class="muted">– Command & Beispiel</span></summary>
 
   **Roll-Command:**
 
@@ -83,7 +83,7 @@
 </details>
 
 <details>
-  <summary><strong>📦 Allgemeine Loot-Regeln</strong> <span class="muted">– Main > Second, BoE, Marken</span></summary>
+  <summary><strong>Allgemeine Loot-Regeln</strong> <span class="muted">– Main > Second, BoE, Marken</span></summary>
 
   - <strong>Main &gt; Second</strong>
   - Second: <code>/rnd 99</code>
