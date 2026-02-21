@@ -70,7 +70,7 @@ Fragen zum System könnt ihr jederzeit stellen.
 <details>
   <summary><strong>Wieso kein Fokus Roll?</strong></summary>
 
-Unserer Meinung nach ist das Enhanced Punkte für ICC das fairste Loot System.
+Unserer Meinung nach sind Enhanced Punkte für ICC das fairste Loot System.
 
 Natürlich haben Raids mit Fokus Rolls durchaus ihre Berechtigung und können für bestimmte Spieler / Charaktere sehr sinnvoll sein.
 Dennoch ist die Chance fair sinnvolle Items zu bekommen mit Enhanced Punkten höher.
