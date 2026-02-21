@@ -53,10 +53,10 @@ Versucht euch in euer ich von vor ~10 Jahren zu versetzen. Damals wart ihr viell
 
 </details>
 
-## Loot-System – Enhanced Points
+## Loot-System
 
 <details open>
-  <summary><strong>Punkte</strong></summary>
+  <summary><strong>Enhanced Punkte</strong></summary>
 
 Wenn ihr in einem Raid <strong>kein Main-Item</strong> bekommt, erhaltet ihr am Ende <strong>10 Punkte</strong>.
 Diese Punkte könnt ihr in späteren Raids einsetzen.
@@ -66,6 +66,33 @@ Es können Maximal <strong>50 Punkte pro Item</strong> eingesetzt werden. Punkte
 Das System soll regelmäßige Spieler belohnen, ohne neue Spieler auszuschließen – jeder hat immer eine faire Chance.
 
 Fragen zum System könnt ihr jederzeit stellen.
+
+<details>
+  <summary><strong>Wieso kein Fokus Roll?</strong></summary>
+
+Unserer Meinung nach ist das Enhanced Punkte für ICC das fairste Loot System.
+
+Natürlich haben Raids mit Fokus Rolls durchaus ihre Berechtigung und können für bestimmte Spieler / Charaktere sehr sinnvoll sein.
+Dennoch ist die Chance fair sinnvolle Items zu bekommen mit Enhanced Punkten höher.
+
+In einem Fokus Roll Raid ist jedes Item auf das man selbst als Spieler keinen Fokus gesetzt hat und jemand anderes hat seinen Fokus darauf für einen selbst unerreichbar.
+
+<details>
+  <summary>Beispiel</summary>
+Das bedeutet, das ein Mage der nur noch Phyla, Spindel und Blutschäumer braucht in jedem Raid mit Fokus Roll quasi nur die Chance auf eines dieser Items hat. Die anderen zwei Items werden sehr wahrscheinlich von jemandem anderen als Fokus gesetzt. Sollte das eigene Item dann nicht droppen auf das man selbst Fokus hat und stattdessen eins der anderen zwei wars das mit dem Raid.
+</details>
+
+Bei Enhance Punkten sieht die Situation aber anders aus. Hier hat der Spieler die Chance potentiell jedes Items zu bekommen. Wenn er nun mehrere Wochen dabei war und Punkte gesammelt hat kann er mit diesen seine Chancen auf eines dieser Items sogar noch erhöhen.
+
+<details>
+  <summary>Beispiel</summary>
+
+In unserem Beispiel von davor hätte der Mage hier also die Chance auf eines der drei Items zu rollen wenn sie kommen. War das sein erster Raid kann er ganz normal mit 1-100 rollen. Sollte nur ein anderer Spieler, der 30 Punkte hat, das selbe Item wollen kann dieser mit 31-130 würfeln. Nun kann es sehr gut passieren, daß der Magier eine 70 würfelt und der andere Spieler eine 50. In diesem Fall hätte der Magier dann Glück gehabt und das Item gewonnen.
+
+Die extra Punkte erhöhen nur die Chancen des anderen Spielers zu gewinnen, garantieren dies aber nicht.
+</details>
+
+</details>
 
 </details>
 
